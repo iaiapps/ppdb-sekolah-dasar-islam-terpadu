@@ -4,38 +4,30 @@
             <img class="logo" :src="'/storage/img/logosdit.png'" alt="logo" />
         </div>
         <p class="text-center pt-3 fs-6">Admin PPDB</p>
-        <ul class="nav flex-row flex-md-column justify-content-between">
+        <!-- ini menu untuk admin -->
+        <ul
+            class="nav flex-row flex-md-column justify-content-between"
+            v-if="$page.props.auth.user.roles == 'admin'"
+        >
             <li class="nav-item my-2">
                 <Link
                     class="nav-link hover rounded"
-                    href="/dashboard"
+                    :href="route('admin.dashboard')"
                     :class="{
-                        'bg-menu': $page.url === '/dashboard',
+                        'bg-menu': $page.component === 'Admin/Index',
                     }"
                 >
                     <i class="bi bi-bar-chart me-0 me-md-2"></i>
                     <span class="d-none d-md-inline-block">Home</span></Link
                 >
             </li>
+
             <li class="nav-item my-2">
                 <Link
                     class="nav-link hover rounded"
-                    href="/madin/"
+                    href="/user/registrants"
                     :class="{
-                        'bg-menu': $page.url === '/DFH',
-                    }"
-                >
-                    <i class="bi bi-bar-chart me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Token</span></Link
-                >
-            </li>
-            <li class="nav-item my-2">
-                <Link
-                    to="/admin/pendaftar"
-                    class="nav-link hover rounded"
-                    href="/madin/"
-                    :class="{
-                        'bg-menu': $page.url === 'Madin/KelasIndex',
+                        'bg-menu': $page.component === 'User/Registrants',
                     }"
                 >
                     <i class="bi bi-info-circle me-0 me-md-2"></i>
@@ -121,6 +113,24 @@
                 </Link>
             </li>
         </ul>
+        <!-- ini menu untuk user -->
+        <ul
+            class="nav flex-row flex-md-column justify-content-between"
+            v-if="$page.props.auth.user.roles == 'menunggu'"
+        >
+            <li class="nav-item my-2">
+                <Link
+                    class="nav-link hover rounded"
+                    :href="route('user.dashboard')"
+                    :class="{
+                        'bg-menu': $page.component === 'User/Index',
+                    }"
+                >
+                    <i class="bi bi-bar-chart me-0 me-md-2"></i>
+                    <span class="d-none d-md-inline-block">Home</span></Link
+                >
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -128,6 +138,9 @@
 import { Link } from "@inertiajs/inertia-vue3";
 export default {
     name: "LeftSide",
+    props: {
+        admin: Boolean,
+    },
     components: {
         Link,
     },

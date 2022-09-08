@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\GuestController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Role;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,14 +24,17 @@ Route::get('/auth', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth');
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::group(['middleware' => 'role:admin'], function () {
 //     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 // });
 
 Route::group(['middleware' => ['role:admin']], function () {
-    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    //
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+});
+Route::group(['middleware' => ['role:menunggu']], function () {
+    Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+    Route::get('/user/registrants', [UserController::class, 'registrants'])->name('user.registrants');
 });
 
 // GUEST

@@ -1,27 +1,27 @@
 <template>
-    <NavHeader />
+    <Navbar />
     <div class="bg-light min-vh-100">
         <div class="container-fluid back">
             <div class="row py-3 px-md-4 px-3">
-                <LeftAdminSide />
+                <Sidebar />
                 <slot />
-                <RightMenuSide />
+                <Rightbar />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import NavHeader from "../Components/dashboard/NavHeader.vue";
-import LeftAdminSide from "../Components/dashboard/LeftAdminSide.vue";
-import RightMenuSide from "../Components/dashboard/RightMenuSide.vue";
+import Navbar from "../Components/dashboard/Navbar.vue";
+import Sidebar from "../Components/dashboard/Sidebar.vue";
+import Rightbar from "../Components/dashboard/Rightbar.vue";
 
 export default {
     name: "AdminPage",
     components: {
-        NavHeader,
-        LeftAdminSide,
-        RightMenuSide,
+        Navbar,
+        Sidebar,
+        Rightbar,
     },
 };
 </script>
@@ -39,7 +39,7 @@ export default {
     border-radius: 10px;
 }
 .back {
-    background-image: url(/storage/img/backdash.svg);
+    background-image: url(../../../public/storage/img/backdash.svg);
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-color: #ecf0f1;

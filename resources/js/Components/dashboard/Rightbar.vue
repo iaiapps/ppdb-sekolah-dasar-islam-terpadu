@@ -42,7 +42,7 @@
 
 <script>
 export default {
-    name: "RightMenuSide",
+    name: "Rightbar",
     data() {
         return {
             time: "",

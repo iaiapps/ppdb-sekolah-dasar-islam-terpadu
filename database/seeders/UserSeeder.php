@@ -24,7 +24,9 @@ class UserSeeder extends Seeder
         ]);
 
         $role = Role::create(['name' => 'admin']);
-        Role::create(['name' => 'pendaftar']);
+        Role::create(['name' => 'membuat_akun']);
+        Role::create(['name' => 'membayar']);
+        Role::create(['name' => 'menunggu']);
         Role::create(['name' => 'diterima']);
         Role::create(['name' => 'ditolak']);
         $user->assignRole($role);

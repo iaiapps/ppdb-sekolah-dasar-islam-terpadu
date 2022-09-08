@@ -3,7 +3,10 @@
         <p class="display-5 fs-3 mt-5">{{ title }}</p>
         <p>{{ description }}</p>
 
-        <button @click="goBack" class="btn btn-oorange w-25 mt-4">Back</button>
+        <button @click="goBack" class="btn btn-oorange w-25 m-2">Back</button>
+        <button @click="goBack" class="btn btn-outline-dark w-25 m-2">
+            Home
+        </button>
         <br />
         <img :src="'/storage/img/404.gif'" class="gif" alt="404" />
     </div>
@@ -34,7 +37,7 @@ export default {
     },
     methods: {
         goBack() {
-            this.$inertia.visit("/");
+            window.history.back();
         },
     },
 };

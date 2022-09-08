@@ -16,14 +16,21 @@ class GuestController extends Controller
     {
         $title  = 'akun';
         $user = Auth::user();
-        // jika belum membayar, atau role bukan 'pendaftar', maka arahkan ke perintah bayar
-        if (!$user->hasRole('pendaftar')) {
-            return Inertia::render('Guest/Bridge', compact('title', 'user'));
-        } elseif ($user->hasRole('pendaftar')) {
-            return Inertia::render('Guest/FormPendaftaran', compact('user'));
-        } elseif ($user->hasRole('diterima')) {
-        } else {
+        if (!$user) {
             return redirect('/');
+        } else {
+            $user = Auth::user();
+            if ($user->hasRole('membuat_akun')) {
+                return Inertia::render('Guest/Bridge', compact('title', 'user'));
+            } elseif ($user->hasRole('membayar')) {
+                return Inertia::render('Guest/FormPendaftaran', compact('user'));
+            } elseif ($user->hasRole('menunggu')) {
+                return redirect()->route('home');
+            } elseif ($user->hasRole('diterima')) {
+                return Inertia::render('Guest/FormPendaftaran', compact('user'));
+            } else {
+                return redirect('/');
+            }
         }
     }
     public function createAccount()
@@ -54,6 +61,7 @@ class GuestController extends Controller
             return back();
         } else {
             Auth::login($user);
+            $user->assignRole('membuat_akun');
             return redirect()->route('bridge');
         }
     }
@@ -66,8 +74,8 @@ class GuestController extends Controller
         $user = Auth::user();
         $data = $request->all();
         $data['user_id'] = $user->id;
-        $user->assignRole('pendaftar');
         Student::create($data);
-        return redirect('bridge');
+        $user->syncRoles('menunggu');
+        return redirect()->route('bridge');
     }
 }
