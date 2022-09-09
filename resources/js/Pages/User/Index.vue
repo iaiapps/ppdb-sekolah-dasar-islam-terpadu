@@ -1,37 +1,21 @@
 <template>
     <div class="col-12 col-md-8 px-0 px-md-3 mt-3 mt-md-0">
-        <div class="bg-white rounded p-3 mb-3">
-            status peserta : Diterima di SDIT Harapan Umat Jember
+        <div class="bg-white rounded p-3 mb-3 text-capitalize">
+            Status : {{ status }}
         </div>
-        <div class="bg-white rounded p-3 mb-3">
+        <!-- <div class="bg-white rounded p-3 mb-3">
             <p class="fs-4 m-0">Data Pendaftar</p>
-        </div>
+        </div> -->
         <div class="bg-white rounded p-3">
-            <router-link to="/formulir" class="btn btn-oorange mb-3 w-100"
-                >Isi Formulir Pendaftaran</router-link
-            >
-
             <div class="row">
                 <div class="col">
                     <p>Data Diri</p>
                     <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Form</th>
-                                <th scope="col">Keterangan</th>
-                            </tr>
-                        </thead>
+                        <thead></thead>
                         <tbody>
                             <tr>
-                                <td scope="row">1</td>
                                 <td>Nama</td>
-                                <td>Ikrom</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Alamat</td>
-                                <td>Jl. Sumatera</td>
+                                <td>{{ student.full_name }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -102,6 +86,10 @@ import AppLayout from "../../Layouts/App.vue";
 export default {
     name: "PendaftarPage",
     layout: AppLayout,
+    props: {
+        status: String,
+        student: Object,
+    },
 };
 </script>
 <style>

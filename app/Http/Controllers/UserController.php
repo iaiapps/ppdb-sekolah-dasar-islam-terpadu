@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
 use Inertia\Inertia;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function index()
     {
-        return Inertia::render('User/Index');
+        $u = Auth::user();
+
+        return Inertia::render('User/Index', ['status' => $u->roles[0]->name, 'student' => $u->student]);
     }
     public function show()
     {
