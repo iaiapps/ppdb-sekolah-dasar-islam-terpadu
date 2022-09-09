@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('setting_timeline', function (Blueprint $table) {
             $table->id();
             $table->string('info');
+            $table->string('date');
         });
     }
 

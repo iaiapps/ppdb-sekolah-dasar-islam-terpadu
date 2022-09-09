@@ -9,4 +9,6 @@ class SettingApplication extends Model
 {
     use HasFactory;
     protected $table = 'setting_application';
+    protected $guarded = ['create_at', 'updated_at'];
+    public $timestamps = false;
 }

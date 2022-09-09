@@ -9,4 +9,6 @@ class SettingTimeline extends Model
 {
     use HasFactory;
     protected $table = 'setting_timeline';
+    protected $guarded = ['create_at', 'updated_at'];
+    public $timestamps = false;
 }
