@@ -9,7 +9,7 @@
         <div class="bg-white rounded p-3">
             <div class="row">
                 <div class="col">
-                    <p>Data Diri</p>
+                    <p class="badge bg-oorange">Data Diri</p>
                     <table class="table">
                         <thead></thead>
                         <tbody>
@@ -17,61 +17,103 @@
                                 <td>Nama</td>
                                 <td>{{ student.full_name }}</td>
                             </tr>
+                            <tr>
+                                <td>Panggilan</td>
+                                <td>{{ student.nick_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Asal</td>
+                                <td>{{ student.school_origin }}</td>
+                            </tr>
+                            <tr>
+                                <td>Jk</td>
+                                <td>{{ student.gender }}</td>
+                            </tr>
+                            <tr>
+                                <td>Tempat lahir</td>
+                                <td>{{ student.place_birth }}</td>
+                            </tr>
+                            <tr>
+                                <td>Tgl lahir</td>
+                                <td>{{ student.date_birth }}</td>
+                            </tr>
+                            <tr>
+                                <td>Kebutuhan</td>
+                                <td>{{ student.special_needs }}</td>
+                            </tr>
+                            <tr>
+                                <td>Saudara</td>
+                                <td>{{ student.saudara_kandung_di_sdit }}</td>
+                            </tr>
+                            <tr>
+                                <td>Tinggal bersama</td>
+                                <td>{{ student.living }}</td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td>{{ student.address }}</td>
+                            </tr>
+                            <tr>
+                                <td>Rt rw</td>
+                                <td>{{ student.rtrw }}</td>
+                            </tr>
+                            <tr>
+                                <td>Kode pos</td>
+                                <td>{{ student.postalcode }}</td>
+                            </tr>
+                            <tr>
+                                <td>Desa/Kel</td>
+                                <td>{{ student.desa }}</td>
+                            </tr>
+                            <tr>
+                                <td>Kecamatan</td>
+                                <td>{{ student.kecamatan }}</td>
+                            </tr>
+                            <tr>
+                                <td>Kota/Kab</td>
+                                <td>{{ student.kota }}</td>
+                            </tr>
+                            <tr>
+                                <td>Prov.</td>
+                                <td>{{ student.provinsi }}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="col">
-                    <p>Data Ayah</p>
+                    <p class="badge bg-oorange">Data Ayah</p>
                     <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Form</th>
-                                <th scope="col">Keterangan</th>
-                            </tr>
-                        </thead>
                         <tbody>
                             <tr>
-                                <th>1</th>
-                                <td>Nama Ayah</td>
-                                <td>xyxyxyxyxyxyxy</td>
+                                <td>Ayah</td>
+                                <td>{{ student.dad }}</td>
                             </tr>
                             <tr>
-                                <th>2</th>
-                                <td>Pekerjaan</td>
-                                <td>xyxyxyxyxyxyxy</td>
+                                <td>Pendidikan</td>
+                                <td>{{ student.dad_edu }}</td>
                             </tr>
                             <tr>
-                                <th>3</th>
-                                <td>Alamat</td>
-                                <td>xyxyxyxyxyxyxy</td>
+                                <td>HP</td>
+                                <td>{{ student.dad_phone }}</td>
                             </tr>
                         </tbody>
                     </table>
-                    <p>Data Ibu</p>
+                    <p class="badge bg-oorange">Data Ibu</p>
+
                     <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Form</th>
-                                <th scope="col">Keterangan</th>
-                            </tr>
-                        </thead>
                         <tbody>
                             <tr>
-                                <th>1</th>
-                                <td>Nama Ibu</td>
-                                <td>xyxyxyxyxyxyxy</td>
+                                <td>Ibu</td>
+                                <td>{{ student.mom }}</td>
                             </tr>
                             <tr>
-                                <th>2</th>
-                                <td>Pekerjaan</td>
-                                <td>xyxyxyxyxyxyxy</td>
+                                <td>Pendidikan</td>
+                                <td>{{ student.mom_edu }}</td>
                             </tr>
+
                             <tr>
-                                <th>3</th>
-                                <td>Alamat</td>
-                                <td>xyxyxyxyxyxyxy</td>
+                                <td>Hp</td>
+                                <td>{{ student.mom_phone }}</td>
                             </tr>
                         </tbody>
                     </table>

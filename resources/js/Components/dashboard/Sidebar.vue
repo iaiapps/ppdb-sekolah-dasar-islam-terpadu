@@ -3,7 +3,7 @@
         <div class="text-center">
             <img class="logo" :src="'/storage/img/logosdit.png'" alt="logo" />
         </div>
-        <p class="text-center pt-3 fs-6">Admin PPDB</p>
+        <p class="text-center pt-3 fs-6">{{ $page.props.auth.user.name }}</p>
         <!-- ini menu untuk admin -->
         <ul
             class="nav flex-row flex-md-column justify-content-between"
@@ -126,7 +126,7 @@
                         'bg-menu': $page.component === 'User/Index',
                     }"
                 >
-                    <i class="bi bi-bar-chart me-0 me-md-2"></i>
+                    <i class="bi bi-house-heart-fill me-0 me-md-2"></i>
                     <span class="d-none d-md-inline-block">Home</span></Link
                 >
             </li>

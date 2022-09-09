@@ -8,9 +8,13 @@
             />
         </div>
         <div class="col-6 text-end">
-            <button class="btn btn-oorange text-white me-2">
+            <a
+                class="btn btn-oorange text-white me-2"
+                target="_blank"
+                href="https://wa.me/6288289378109/"
+            >
                 <i class="bi bi-chat-left-text"></i>
-            </button>
+            </a>
             <Link
                 as="button"
                 class="btn btn-oorange text-white"

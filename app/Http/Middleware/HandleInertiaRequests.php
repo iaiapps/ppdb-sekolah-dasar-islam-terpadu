@@ -41,9 +41,15 @@ class HandleInertiaRequests extends Middleware
         if ($user) {
             $permissions = $user->getAllPermissions()->pluck('name');
             $roles = $user->roles()->pluck('name');
+            if ($roles[0] != 'admin' && $user->student) {
+                $role_name = $user->student->nick_name;
+            } else {
+                $role_name = 'member';
+            }
         } else {
             $permissions = null;
             $roles = null;
+            $role_name = null;
         }
         return array_merge(parent::share($request), [
             'flash' => [
@@ -51,7 +57,8 @@ class HandleInertiaRequests extends Middleware
                 'gagal' => fn () => $request->session()->get('gagal'),
             ],
             'auth.user.permissions' => $permissions,
-            'auth.user.roles' => $roles
+            'auth.user.roles' => $roles,
+            'auth.user.name' => $role_name ? $role_name : 'admin',
         ]);
     }
 }
