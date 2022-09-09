@@ -13,6 +13,9 @@
                     Formulir Pendaftaran Siswa Baru SDIT Harapan Umat Jember
                 </p>
                 <hr class="hr" />
+                <span class="text-light">
+                    {{ gelombang[1] }} - Gelombang {{ gelombang[0] }}</span
+                >
             </div>
             <div class="col-12 col-md-8 p-3 p-md-5">
                 <form @submit.prevent="kirimFormulir">
@@ -560,6 +563,9 @@
 import { Inertia } from "@inertiajs/inertia";
 export default {
     name: "FormPage",
+    props: {
+        gelombang: Object,
+    },
     setup() {
         const form = {
             full_name: "",

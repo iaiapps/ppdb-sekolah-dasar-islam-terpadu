@@ -49,7 +49,6 @@
                             >Buat akun</Link
                         >
                     </form>
-                    <br />
                 </div>
             </div>
             <div class="col-6 p-5 bg-oorange d-none d-md-block text-center">

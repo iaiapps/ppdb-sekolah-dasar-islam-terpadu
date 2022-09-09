@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreFormulirRequest;
-use App\Models\Student;
+use Carbon\Carbon;
 use App\Models\User;
+use Inertia\Inertia;
+use App\Models\Student;
+use App\Models\SettingPpdb;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Inertia\Inertia;
+use App\Http\Requests\StoreFormulirRequest;
 
 class GuestController extends Controller
 {
     public function bridge()
     {
-        $title  = 'akun';
+        $title  = 'online';
         $user = Auth::user();
         if (!$user) {
             return redirect('/');
@@ -23,7 +25,14 @@ class GuestController extends Controller
             if ($user->hasRole('membuat_akun')) {
                 return Inertia::render('Guest/Bridge', compact('title', 'user'));
             } elseif ($user->hasRole('membayar')) {
-                return Inertia::render('Guest/FormPendaftaran', compact('user'));
+                // sebelum form di tampilkan, tentu harus di cek di timeline apakah ada gelombang yg aktif
+                if ($this->_isOn()) {
+                    $gelombang = $this->_gelombang();
+                    return Inertia::render('Guest/FormPendaftaran', compact('user', 'gelombang'));
+                } else {
+                    $title  = 'offline';
+                    return Inertia::render('Guest/Bridge', compact('title', 'user'));
+                }
             } elseif ($user->hasRole('menunggu')) {
                 return redirect()->route('home');
             } elseif ($user->hasRole('diterima')) {
@@ -77,5 +86,20 @@ class GuestController extends Controller
         Student::create($data);
         $user->syncRoles('menunggu');
         return redirect()->route('bridge');
+    }
+    private function _isOn()
+    {
+        $is_active = SettingPpdb::where('is_active', true)
+            ->first();
+        if ($is_active) {
+            return Carbon::now()->between(Carbon::parse($is_active->start_date)->subDay(), Carbon::parse($is_active->end_date));
+        }
+    }
+    private function _gelombang()
+    {
+        $g = SettingPpdb::where('is_active', true)->first();
+        if ($g) {
+            return [$g->gelombang, $g->tahun_ajaran];
+        }
     }
 }
