@@ -1,0 +1,35 @@
+
+// Override default variables before the import
+// you can open the bootstrap.scss module and check any available variables.
+
+//default
+$primary: #0d6efd;
+$secondary: #6c757d;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #212529;
+
+//added
+$orange:#ffa511;
+
+
+// this is used to map colors. change accordingly.
+$theme-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  info: $info,
+  warning: $warning,
+  danger: $danger,
+  light: $light,
+  dark: $dark,
+  oorange:$orange
+);
+
+//add custom color
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";

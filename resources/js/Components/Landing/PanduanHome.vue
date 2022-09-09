@@ -9,8 +9,9 @@
                   <br />SDIT Harapan Umat Jember
                </p>
                <ul class="fs-5 pb-2">
-                  <li>Biaya pendaftaran</li>
-                  <li>Konfirmasi pendafaran</li>
+                  <li>Buat akun PPDB</li>
+                  <li>Membayar biaya pendaftaran</li>
+                  <li>Konfirmasi pembayaran</li>
                   <li>Login web dan isi formulir</li>
                   <li>Pengumuman</li>
                </ul>
@@ -21,11 +22,9 @@
                   <div class="col-12 col-md-6 p-2">
                      <div class="bg-card-pand p-3">
                         <i class="bi bi-coin display-5"></i>
-                        <p>
-                           Membayar biaya pendaftaran sebesar :
-                           <span
-                              class="bg-oorange text-white p-1 rounded fw-bold"
-                           >Rp 300.000</span> ke rekening sekolah BSI 4441234007 a.n. Sekolah Dasar Islam Terpadu Harapan Umat Jember
+                        <p>Buat Akun PPDB, kemudian membayar biaya pendaftaran sebesar :
+                           <span class="bg-oorange text-white p-1 rounded fw-bold">Rp 300.000</span> ke rekening sekolah
+                           BSI 4441234007 a.n. Sekolah Dasar Islam Terpadu Harapan Umat Jember.
                         </p>
                      </div>
                   </div>
@@ -35,17 +34,17 @@
                         <p>
                            Mengirim bukti transfer ke nomor 088-289-378-109 dengan format:
                            <br />
-                           <span
-                              class="bg-oorange p-1 rounded fw-bold text-white"
-                           >nama pengirim#nama calon siswa,</span>
-                           <br />untuk mendapat "Token" login ke web PPDB
+                           <span class="bg-oorange p-1 rounded fw-bold text-white">nama pengirim#nama calon
+                              siswa,</span>
+                           <br />agar akun berstatus "Aktif".
                         </p>
                      </div>
                   </div>
                   <div class="col-12 col-md-6 p-2">
                      <div class="bg-card-pand p-3">
                         <i class="bi bi-input-cursor-text display-5"></i>
-                        <p>Mengisi formulir pendaftaran dengan Login ke web PPDB SDIT Harum, menggunakan token yang diberikan</p>
+                        <p>Mengisi formulir pendaftaran dengan akun yang sudah "Aktif" di web PPDB SDIT Harum. Akun yang
+                           "Belum Aktif" tidak dapat mengisi formulir pendaftaran</p>
                      </div>
                   </div>
                   <div class="col-12 col-md-6 p-2">
@@ -76,6 +75,7 @@ export default {
 .bg-oorange {
    background-color: #f79500;
 }
+
 .bg-card-pand {
    height: 100%;
    background-color: white;
