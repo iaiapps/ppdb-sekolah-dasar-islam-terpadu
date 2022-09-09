@@ -30,7 +30,7 @@
                             class="nav-link hover px-3"
                             v-bind:class="{ 'bg-nav': isActive === 'beranda' }"
                             @click="isActive = 'beranda'"
-                            href="#"
+                            href="#beranda"
                             >BERANDA</a
                         >
                     </li>

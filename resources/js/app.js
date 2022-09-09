@@ -4,6 +4,10 @@ import { createInertiaApp } from "@inertiajs/inertia-vue3";
 
 import { InertiaProgress } from "@inertiajs/progress";
 
+import "bootstrap";
+// import "../css/scss/custom.scss";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 // import { library } from "@fortawesome/fontawesome-svg-core";
 // import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 // import { fas } from "@fortawesome/free-solid-svg-icons";
