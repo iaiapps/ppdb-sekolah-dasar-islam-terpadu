@@ -28,6 +28,7 @@ class GuestController extends Controller
                 // sebelum form di tampilkan, tentu harus di cek di timeline apakah ada gelombang yg aktif
                 if ($this->_isOn()) {
                     $gelombang = $this->_gelombang();
+                    $user = $user->name;
                     return Inertia::render('Guest/FormPendaftaran', compact('user', 'gelombang'));
                 } else {
                     $title  = 'offline';

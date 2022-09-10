@@ -25,13 +25,13 @@
             <li class="nav-item my-2">
                 <Link
                     class="nav-link hover rounded"
-                    href="/user/registrants"
+                    href="/admin/users"
                     :class="{
-                        'bg-menu': $page.component === 'User/Registrants',
+                        'bg-menu': $page.url === '/admin/user-register',
                     }"
                 >
                     <i class="bi bi-info-circle me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Pendaftar</span>
+                    <span class="d-none d-md-inline-block">Users</span>
                 </Link>
             </li>
             <li class="nav-item my-2">

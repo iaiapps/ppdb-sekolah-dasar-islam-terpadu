@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\SettingTimeline;
 use Inertia\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,14 +38,18 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        // informasi timeline
+        $tl = SettingTimeline::get();
         $user = Auth::user();
         if ($user) {
             $permissions = $user->getAllPermissions()->pluck('name');
             $roles = $user->roles()->pluck('name');
             if ($roles[0] != 'admin' && $user->student) {
                 $role_name = $user->student->nick_name;
+            } else if ($roles[0] == 'admin') {
+                $role_name = 'Admin';
             } else {
-                $role_name = 'member';
+                $role_name = 'Member';
             }
         } else {
             $permissions = null;
@@ -59,6 +64,7 @@ class HandleInertiaRequests extends Middleware
             'auth.user.permissions' => $permissions,
             'auth.user.roles' => $roles,
             'auth.user.name' => $role_name ? $role_name : 'admin',
+            'timelines' => $tl
         ]);
     }
 }

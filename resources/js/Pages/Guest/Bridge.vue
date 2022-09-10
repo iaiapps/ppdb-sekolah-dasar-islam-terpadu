@@ -25,20 +25,27 @@
                             terlebih dahulu untuk mengaktifkan Akun.
                         </li>
                         <li class="list-group-item">
-                            Biaya pendaftaran sebesar: Rp 300.000 ke rekening
-                            sekolah BSI 4441234007 a.n. Sekolah Dasar Islam
-                            Terpadu Harapan Umat Jember
+                            Biaya pendaftaran sebesar:
+                            <span class="badge bg-oorange">Rp 300.000</span> ke
+                            rekening sekolah BSI
+                            <span class="badge bg-oorange">4441234007</span
+                            ><br />
+                            A/N
+                            <i>
+                                Sekolah Dasar Islam Terpadu Harapan Umat
+                                Jember</i
+                            >
                         </li>
                         <li class="list-group-item">
-                            Kirim bukti pembayaran ke Admin SDIT untuk
-                            konfirmasi Akun PPDB
+                            Untuk konfirmasi bukti pembayaran ke Nomor di bawah
+                            ini
                         </li>
                     </ul>
                     <a
                         href="https://wa.me/6288289378109/"
                         target="_blank"
                         class="btn btn-oorange btn-lg w-100"
-                        >WA Admin</a
+                        >WA Admin (Klik disini)</a
                     >
                 </div>
                 <!-- PENDAFTARAN MASIH BELUM DIBUKA -->

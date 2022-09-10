@@ -16,26 +16,14 @@
             <span>{{ time }}</span>
         </div>
         <hr />
-        <p>Timeline</p>
+        <strong>Timeline</strong>
         <hr />
         <div class="small">
-            <p>Pendaftaran Peserta</p>
-            <p>01 November 2022 s/d 31 Januari 2023</p>
-            <hr />
-            <p>Observasi dan Psikotest</p>
-            <p>07-10 Februari 2023</p>
-            <hr />
-            <p>Pengumuman PPDB</p>
-            <p>04 Maret 2023</p>
-            <hr />
-            <p>Pembayaran Daftar Ulang</p>
-            <p>04-13 Maret 2023</p>
-            <hr />
-            <p>Test BTAQ</p>
-            <p>2-3 Juni 2023</p>
-            <hr />
-            <p>Pembagian seragam, buku, dan kelas</p>
-            <p>4-7 Juli 2023</p>
+            <div v-for="item in $page.props.timelines">
+                <p>{{ item.info }}</p>
+                <p>{{ item.date }}</p>
+                <hr />
+            </div>
         </div>
     </div>
 </template>

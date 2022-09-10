@@ -565,6 +565,7 @@ export default {
     name: "FormPage",
     props: {
         gelombang: Object,
+        user: Object,
     },
     setup() {
         const form = {
