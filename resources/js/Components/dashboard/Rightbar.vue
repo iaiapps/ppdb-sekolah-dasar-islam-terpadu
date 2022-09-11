@@ -1,18 +1,12 @@
 <template>
-    <a
-        href="#top"
-        class="btn btn-oorange mt-3 d-md-none floating fs-2"
-        v-on:click="getModal"
-    >
+    <a href="#top" class="btn btn-oorange mt-3 d-md-none floating fs-2" v-on:click="getModal">
         <i class="bi bi-calendar2-check"></i>
     </a>
-    <div
-        id="top"
+    <div id="top"
         class="col-12 col-md-2 bg-white rounded p-3 text-center my-3 mt-md-0 order-first order-md-last d-md-block"
-        v-bind:class="{ 'd-none': isActivated }"
-    >
-        <div class="bg-oorange p-1 text-white">
-            <p>Tanggal</p>
+        v-bind:class="{ 'd-none': isActivated }">
+        <div class="bg-oorange p-1 text-white rounded">
+            <p class="badge">Tanggal sekarang</p><br>
             <span>{{ time }}</span>
         </div>
         <hr />
@@ -74,6 +68,7 @@ p {
     text-align: center;
     box-shadow: 2px 2px 3px #999;
 }
+
 .bg-oorange {
     background-color: #f79500;
 }

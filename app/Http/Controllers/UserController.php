@@ -15,6 +15,14 @@ class UserController extends Controller
 
         return Inertia::render('User/Index', ['status' => $u->roles[0]->name, 'student' => $u->student]);
     }
+    public function informasi()
+    {
+        return Inertia::render('User/InformasiPage');
+    }
+    public function jadwal()
+    {
+        return Inertia::render('User/JadwalPage');
+    }
     public function show()
     {
         $students = Student::all();

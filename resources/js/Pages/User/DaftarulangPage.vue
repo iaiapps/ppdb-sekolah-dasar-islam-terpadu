@@ -10,7 +10,15 @@
 </template>
 
 <script>
-export default {
-    name: "DaftarulangPage",
-};
-</script>
+    import AppLayout from "../../Layouts/App.vue";
+    export default {
+        name: "PendaftarPage",
+        layout: AppLayout,
+       
+    };
+    </script>
+    <style>
+    .btn-oorange {
+        background-color: #f79500;
+    }
+    
