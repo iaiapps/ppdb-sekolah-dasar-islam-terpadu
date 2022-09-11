@@ -38,6 +38,8 @@ Route::group(['middleware' => ['role:admin']], function () {
 
 Route::group(['middleware' => ['role:menunggu']], function () {
     Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+    Route::get('/user/informasi', [UserController::class, 'informasi'])->name('user.informasi');
+    Route::get('/user/jadwal', [UserController::class, 'jadwal'])->name('user.jadwal');
 });
 
 // GUEST

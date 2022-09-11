@@ -25,7 +25,7 @@ class AdminController extends Controller
     }
     public function aktifkanUser(User $user)
     {
-        $user->assignRole('membayar');
+        $user->syncRoles('membayar');
         $pesan = 'akun A/N: ' . $user->name . ' Berhasil diaktifkan';
         return redirect()->back()->with('message', $pesan);
     }
