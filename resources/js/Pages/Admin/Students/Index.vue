@@ -25,7 +25,42 @@
                             <td>{{ st.full_name }}</td>
                             <td>{{ st.school_origin }}</td>
                             <td>{{ st.created_at }}</td>
-                            <td>xc</td>
+                            <td>
+                                <!-- Example single danger button -->
+                                <div class="btn-group">
+                                    <button
+                                        type="button"
+                                        class="btn btn-danger dropdown-toggle"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        Action
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                                >Action</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                                >Another action</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                                >Something else here</a
+                                            >
+                                        </li>
+                                        <li><hr class="dropdown-divider" /></li>
+                                        <li>
+                                            <a class="dropdown-item" href="#"
+                                                >Separated link</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
