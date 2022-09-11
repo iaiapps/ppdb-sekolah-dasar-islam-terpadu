@@ -31,8 +31,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/users', [AdminController::class, 'Users'])->name('admin.users');
+    Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
     Route::get('/admin/{user}/user-aktifkan', [AdminController::class, 'aktifkanUser'])->name('admin.user-aktifkan');
+    Route::get('/admin/students', [AdminController::class, 'students'])->name('admin.students');
     // Route::get('/admin/user-search', [AdminController::class, 'userSearch'])->name('user.search');
 });
 

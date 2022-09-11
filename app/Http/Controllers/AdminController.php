@@ -6,6 +6,7 @@ use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class AdminController extends Controller
 {
@@ -28,5 +29,10 @@ class AdminController extends Controller
         $user->syncRoles('membayar');
         $pesan = 'akun A/N: ' . $user->name . ' Berhasil diaktifkan';
         return redirect()->back()->with('message', $pesan);
+    }
+    public function students(Request $request)
+    {
+        $students =  Student::paginate(5);
+        return Inertia::render('Admin/Students/Index', ['title' => 'Students', 'students' => $students]);
     }
 }
