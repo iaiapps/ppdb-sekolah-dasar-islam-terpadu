@@ -4,7 +4,7 @@
             <p class="fs-4 m-0">Jadwal Test</p>
         </div>
         <div class="bg-white rounded p-3">
-            <p class="text-center fs-4">Jadwal Psikotest Ananda 11 Februari 2023</p>
+            <p class="text-center fs-4 m-0">Jadwal Psikotest akan dilaksanakn pada Sabtu, 11 Februari 2023</p>
         </div>
     </div>
 </template>

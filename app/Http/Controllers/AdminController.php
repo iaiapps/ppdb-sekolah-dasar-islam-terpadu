@@ -29,4 +29,24 @@ class AdminController extends Controller
         $pesan = 'akun A/N: ' . $user->name . ' Berhasil diaktifkan';
         return redirect()->back()->with('message', $pesan);
     }
+
+    public function TerimaTolak()
+    {
+        return Inertia::render('Admin/TerimaTolak');
+    }
+
+    public function Kategori()
+    {
+        return Inertia::render('Admin/Kategori');
+    }
+    
+    public function AturBiaya()
+    {
+        return Inertia::render('Admin/AturBiaya');
+    }
+
+    public function Settings()
+    {
+        return Inertia::render('Admin/Settings');
+    }
 }
