@@ -86,4 +86,8 @@ class AdminController extends Controller
         $costs = CostCategory::all();
         return Inertia::render('Admin/Cost/Index', compact('costs'));
     }
+    public function costEdit(CostCategory $cost)
+    {
+        return Inertia::render('Admin/Cost/Edit', compact('cost'));
+    }
 }

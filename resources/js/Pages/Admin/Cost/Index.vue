@@ -22,7 +22,11 @@
                     </thead>
                     <tbody>
                         <tr v-for="(c, index) in costs" :key="c.id">
-                            <td>{{ c.name }}</td>
+                            <td>
+                                <Link :href="route('admin.cost.edit', c.id)">{{
+                                    c.name
+                                }}</Link>
+                            </td>
                             <td>{{ c.gender }}</td>
                             <td>{{ c.gedung }}</td>
                             <td>{{ c.perpustakaan }}</td>
