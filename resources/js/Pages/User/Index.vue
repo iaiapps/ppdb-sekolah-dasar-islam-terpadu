@@ -1,20 +1,17 @@
 <template>
     <div class="col-12 col-md-8 px-0 px-md-3 mt-3 mt-md-0">
-        <div class="alert alert-success alert-dismissible mb-3">
-            <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="alert"
-            ></button>
+        <div v-show="alert" class=" bg-white text-center alert alert-dismissible mb-3 fs-5">
             {{ $page.props.flash.message }}
+
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div class="bg-white rounded p-3 mb-3 text-capitalize">
-            Status : {{ status }}
+        <div class="bg-white rounded p-3 mb-3 text-uppercase fs-5">
+            Status : <b>{{ status }}</b>
         </div>
         <div class="bg-white rounded p-3">
             <div class="row">
                 <div class="col">
-                    <p class="badge bg-oorange">Data Diri</p>
+                    <p class="badge bg-oorange">Data Calon Siswa</p>
                     <table class="table">
                         <thead></thead>
                         <tbody>
@@ -31,7 +28,7 @@
                                 <td>{{ student.school_origin }}</td>
                             </tr>
                             <tr>
-                                <td>Jk</td>
+                                <td>Jenis Kelamin</td>
                                 <td>{{ student.gender }}</td>
                             </tr>
                             <tr>
@@ -98,6 +95,10 @@
                                 <td>{{ student.dad_edu }}</td>
                             </tr>
                             <tr>
+                                <td>Penghasilan</td>
+                                <td>{{ student.dad_income }}</td>
+                            </tr>
+                            <tr>
                                 <td>HP</td>
                                 <td>{{ student.dad_phone }}</td>
                             </tr>
@@ -115,13 +116,21 @@
                                 <td>Pendidikan</td>
                                 <td>{{ student.mom_edu }}</td>
                             </tr>
-
+                            <tr>
+                                <td>Penghasilan</td>
+                                <td>{{ student.mom_income }}</td>
+                            </tr>
                             <tr>
                                 <td>Hp</td>
                                 <td>{{ student.mom_phone }}</td>
                             </tr>
                         </tbody>
                     </table>
+
+                    <a class="btn btn-oorange w-100 mt-3" :href="route('user.informasi')">
+                        <i class=" bi bi-info-circle me-0 me-md-2"></i>
+                        <span class="d-none d-md-inline-block">Selanjutnya</span></a>
+
                 </div>
             </div>
         </div>
@@ -130,6 +139,7 @@
 
 <script>
 import AppLayout from "../../Layouts/App.vue";
+
 export default {
     name: "PendaftarPage",
     layout: AppLayout,
@@ -137,10 +147,27 @@ export default {
         status: String,
         student: Object,
     },
+    
+    data(){
+        return{
+            alert:true,
+            
+        }
+    },
+    methods:{
+        tampil(){
+            if(this.$page.props.flash.message == null){
+                this.alert = false
+            }else{
+                this.alert =true
+                setTimeout(()=>{
+                this.alert=false
+                },5000)
+            }
+        }
+    },
+    mounted(){
+        this.tampil()
+       }
 };
 </script>
-<style>
-.btn-oorange {
-    background-color: #f79500;
-}
-</style>
