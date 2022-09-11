@@ -13,7 +13,7 @@ class HomeController extends Controller
         if ($user->hasRole('admin')) {
             return redirect()->route('admin.dashboard');
         } else {
-            return redirect()->route('user.dashboard');
+            return redirect()->route('bridge');
         }
         // if()
     }

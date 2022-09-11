@@ -35,7 +35,7 @@ class GuestController extends Controller
                     return Inertia::render('Guest/Bridge', compact('title', 'user'));
                 }
             } elseif ($user->hasRole('menunggu')) {
-                return redirect()->route('home');
+                return redirect()->route('user.dashboard')->with('message', 'Selamat Datang');
             } elseif ($user->hasRole('diterima')) {
                 return Inertia::render('Guest/FormPendaftaran', compact('user'));
             } else {
@@ -86,7 +86,7 @@ class GuestController extends Controller
         $data['user_id'] = $user->id;
         Student::create($data);
         $user->syncRoles('menunggu');
-        return redirect()->route('bridge');
+        return redirect()->route('user.dashboard')->with('message', 'Berhasil Mendaftar');
     }
     private function _isOn()
     {

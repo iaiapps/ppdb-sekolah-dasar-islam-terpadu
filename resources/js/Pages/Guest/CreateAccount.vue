@@ -53,10 +53,10 @@
                                 type="number"
                                 v-model="form.hp"
                                 class="form-control form-control-lg mb-3"
+                                :class="{ 'is-invalid': errors.hp }"
                                 placeholder="No WhatssApp (Aktif)"
                             />
-                            <!-- contoh error callback -->
-                            <div v-if="errors.hp" class="valid-feedback">
+                            <div class="invalid-feedback">
                                 {{ errors.hp }}
                             </div>
                         </div>

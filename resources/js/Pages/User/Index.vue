@@ -6,7 +6,7 @@
                 class="btn-close"
                 data-bs-dismiss="alert"
             ></button>
-            <strong> Berhasil mendaftar!</strong> Status dalam peninjauan data
+            {{ $page.props.flash.message }}
         </div>
         <div class="bg-white rounded p-3 mb-3 text-capitalize">
             Status : {{ status }}
