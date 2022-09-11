@@ -32,7 +32,11 @@ class AdminController extends Controller
     }
     public function students(Request $request)
     {
-        $students =  Student::paginate(5);
+        $students =  Student::query()
+            ->when($request->cari, function ($query, $cari) {
+                $query->where('full_name', 'LIKE', "%{$cari}%");
+            })
+            ->paginate(5);
         return Inertia::render('Admin/Students/Index', ['title' => 'Students', 'students' => $students]);
     }
     public function TerimaTolak()

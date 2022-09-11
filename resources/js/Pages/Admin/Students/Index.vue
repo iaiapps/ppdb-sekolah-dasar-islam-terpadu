@@ -9,6 +9,7 @@
                     type="text"
                     class="form-control mb-3"
                     placeholder="Search"
+                    v-model="cari"
                 />
                 <table class="table table-striped">
                     <thead>
@@ -37,8 +38,17 @@
 <script setup>
 import AppLayout from "../../../Layouts/App.vue";
 import Pagination from "../../../Components/Table/Pagination.vue";
-import { defineProps } from "vue";
+import { ref, watch, defineProps } from "vue";
+import { Inertia } from "@inertiajs/inertia";
+const cari = ref("");
 const props = defineProps({
     students: Object,
+});
+watch(cari, (value) => {
+    Inertia.get(
+        route("admin.students"),
+        { cari: value },
+        { preserveState: true, replace: true }
+    );
 });
 </script>

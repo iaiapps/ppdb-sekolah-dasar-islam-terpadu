@@ -36,6 +36,18 @@
                     <span class="d-none d-md-inline-block">Users</span>
                 </Link>
             </li>
+            <li class="nav-item my-1">
+                <Link
+                    class="nav-link hover rounded"
+                    href="/admin/students"
+                    :class="{
+                        'bg-menu': $page.url === '/admin/students',
+                    }"
+                >
+                    <i class="bi bi-info-circle me-0 me-md-2"></i>
+                    <span class="d-none d-md-inline-block">Students</span>
+                </Link>
+            </li>
             <!-- <li class="nav-item my-1">
                 <Link to="/admin/jadwal" class="nav-link hover rounded" href="/madin/" :class="{
                     'bg-menu': $page.url === 'Madin/KelasIndex',
