@@ -35,32 +35,32 @@ class SettingSeeder extends Seeder
 
         DB::table('setting_timeline')->insert([
             [
-                'info' => 'Pendaftaran Calon Peserta Didik',
-                'date' => '1 Nov 2022 s/d 31 Jan 2023'
+                'info' => 'Pendaftaran Calon 
+                Peserta Didik',
+                'date' => '12 Sept 2022 s/d 14 Jan 2023'
             ],
             [
                 'info' => 'Observasi dan
                 Psikotest',
-                'date' => '07-10 Feb 2023'
+                'date' => '11 Februari 2023'
             ],
             [
                 'info' => 'Pengumuman
                 Hasil PPDB',
-                'date' => '04 Mar 2023'
+                'date' => '13 Maret 2023'
             ],
             [
                 'info' => 'Pembayaran Biaya
                 Daftar Ulang',
-                'date' => '04-13 Maret 2023'
+                'date' => '13 Mar - 10 Apr 2023'
             ],
             [
-                'info' => 'Test Baca Tulis
-                Al-Quran',
-                'date' => '2-3 Juni 2023'
+                'info' => 'Test BTAQ dan Fitting Seragam',
+                'date' => '11-12 Mei 2023'
             ],
             [
                 'info' => 'Pembagian seragam, buku, & kelas',
-                'date' => '4-7 Juli 2023'
+                'date' => '7 Juli 2023'
             ],
         ]);
 

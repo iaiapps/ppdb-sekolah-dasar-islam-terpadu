@@ -11,7 +11,7 @@
                         Pendaftaran Calon Peserta Didik
                     </h5>
                     <p class="fs-4 py-2 text-black">
-                        1 Nov 2022 s/d 31 Jan 2023
+                        12 Sept 2022 s/d 14 Jan 2023
                     </p>
                     <hr class="w-50" />
                 </div>
@@ -23,7 +23,7 @@
                         Observasi dan
                         <br />Psikotest
                     </h5>
-                    <p class="fs-4 py-2 text-black">07-10 Feb 2023</p>
+                    <p class="fs-4 py-2 text-black">11 Februari 2023</p>
                     <hr class="w-50 text-center" />
                 </div>
             </div>
@@ -34,7 +34,7 @@
                         Pengumuman
                         <br />Hasil PPDB
                     </h5>
-                    <p class="fs-4 py-2 text-black">04 Mar 2023</p>
+                    <p class="fs-4 py-2 text-black">13 Maret 2023</p>
                     <hr class="w-50 text-center" />
                 </div>
             </div>
@@ -45,7 +45,7 @@
                         Pembayaran Biaya
                         <br />Daftar Ulang
                     </h5>
-                    <p class="fs-4 py-2 text-black">04-13 Maret 2023</p>
+                    <p class="fs-4 py-2 text-black">13 Mar - 10 April 2023</p>
                     <hr class="w-50 text-center" />
                 </div>
             </div>
@@ -53,10 +53,10 @@
                 <div class="p-3 bg-card">
                     <img class="img-ket" :src="'storage/img/5.png'" />
                     <h5 class="py-2 fs-3 text-white mb-0">
-                        Test Baca Tulis
-                        <br />Al-Qur'an
+                        Test BTAQ &
+                        <br />Fitting seragam
                     </h5>
-                    <p class="fs-4 py-2 text-black">2-3 Juni 2023</p>
+                    <p class="fs-4 py-2 text-black">11-12 Mei 2023</p>
                     <hr class="w-50 text-center" />
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     <h5 class="py-2 fs-3 text-white mb-0">
                         Pembagian seragam, buku, & kelas
                     </h5>
-                    <p class="fs-4 py-2 text-black">4-7 Juli 2023</p>
+                    <p class="fs-4 py-2 text-black">7 Juli 2023</p>
                     <hr class="w-50 text-center" />
                 </div>
             </div>
@@ -83,6 +83,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 .img-ket {
     width: 80px;
 }

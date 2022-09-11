@@ -30,8 +30,8 @@ class LoginController extends Controller
 
         //if login fails
         return back()->withErrors([
-            'email' => 'Ora bener email e',
-            'password' => 'Ora bener password e',
+            'email' => 'Nomor WhatssApp salah',
+            'password' => 'Password salah',
         ]);
     }
     public function destroy()
