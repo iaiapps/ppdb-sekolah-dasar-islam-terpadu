@@ -46,6 +46,7 @@ return new class extends Migration
             $table->string('mom_income')->nullable();
             $table->string('mom_phone')->nullable();
 
+            $table->bigInteger('cost_category_id')->nullable();
             $table->timestamps();
         });
     }

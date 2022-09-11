@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CostCategory;
 use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Student;
@@ -38,6 +39,15 @@ class AdminController extends Controller
             })
             ->paginate()
             ->withQueryString();
+        // ->transform(function ($student) {
+        //     return [
+        //         'id' => $student->id,
+        //         'full_name' => $student->full_name,
+        //         'school_origin' => $student->school_origin,
+        //         'created_at' => $student->created_at,
+        //         'roles' => $student->user->roles[0]->name,
+        //     ];
+        // });
         return Inertia::render('Admin/Students/Index', ['title' => 'Students', 'students' => $students]);
     }
 
@@ -50,10 +60,6 @@ class AdminController extends Controller
             ->paginate()
             ->withQueryString();
         return Inertia::render('Admin/Students/SetSchedule', compact('students'));
-    }
-    public function TerimaTolak()
-    {
-        return Inertia::render('Admin/TerimaTolak');
     }
 
     public function Kategori()
@@ -69,5 +75,15 @@ class AdminController extends Controller
     public function Settings()
     {
         return Inertia::render('Admin/Settings');
+    }
+    public function acc(Student $student)
+    {
+        $student->user->syncRoles('diterima');
+        return back();
+    }
+    public function cost()
+    {
+        $costs = CostCategory::all();
+        return Inertia::render('Admin/Cost/Index', compact('costs'));
     }
 }

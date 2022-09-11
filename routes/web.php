@@ -35,17 +35,19 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/admin/{user}/user-aktifkan', [AdminController::class, 'aktifkanUser'])->name('admin.user-aktifkan');
     Route::get('/admin/students', [AdminController::class, 'students'])->name('admin.students');
     Route::get('/admin/set-schedule', [AdminController::class, 'setSchedule'])->name('admin.set-schedule');
+    Route::get('/admin/{student}/acc', [AdminController::class, 'acc'])->name('admin.acc');
     //route bawahnya 
     Route::get('/admin/terima-tolak', [AdminController::class, 'TerimaTolak'])->name('admin.terima-tolak');
     Route::get('/admin/kategori-biaya', [AdminController::class, 'Kategori'])->name('admin.kategori-biaya');
     Route::get('/admin/atur-biaya', [AdminController::class, 'AturBiaya'])->name('admin.atur-biaya');
     Route::get('/admin/settings', [AdminController::class, 'Settings'])->name('admin.settings');
-
+    // COST
+    Route::get('/admin/cost/index', [AdminController::class, 'cost'])->name('admin.cost.index');
     // Route::get('/admin/user-search', [AdminController::class, 'userSearch'])->name('user.search');
 });
 
 //USER
-Route::group(['middleware' => ['role:menunggu']], function () {
+Route::group(['middleware' => ['role:menunggu|diterima']], function () {
     Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
     Route::get('/user/informasi', [UserController::class, 'informasi'])->name('user.informasi');
     Route::get('/user/jadwal', [UserController::class, 'jadwal'])->name('user.jadwal');

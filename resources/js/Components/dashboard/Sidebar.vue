@@ -48,38 +48,7 @@
                     <span class="d-none d-md-inline-block">Students</span>
                 </Link>
             </li>
-            <li class="nav-item my-1">
-                <Link
-                    class="nav-link hover rounded"
-                    href="/admin/set-schedule"
-                    :class="{
-                        'bg-menu': $page.url === '/admin/set-schedule',
-                    }"
-                >
-                    <i class="bi bi-info-circle me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Set Schedule</span>
-                </Link>
-            </li>
-            <!-- <li class="nav-item my-1">
-                <Link to="/admin/jadwal" class="nav-link hover rounded" href="/madin/" :class="{
-                    'bg-menu': $page.url === 'Madin/KelasIndex',
-                }">
-                <i class="bi bi-calendar3 me-0 me-md-2"></i>
-                <span class="d-none d-md-inline-block">Jadwal Test</span>
-                </Link>
-            </li> -->
-            <li class="nav-item my-1">
-                <Link
-                    class="nav-link hover rounded"
-                    href="/admin/terima-tolak"
-                    :class="{
-                        'bg-menu': $page.url === '/admin/terima-tolak',
-                    }"
-                >
-                    <i class="bi bi bi-search me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Terima/Tolak</span>
-                </Link>
-            </li>
+
             <!-- <li class="nav-item my-1">
                 <Link to="/admin/status" class="nav-link hover rounded" href="/madin/" :class="{
                     'bg-menu': $page.url === 'Madin/KelasIndex',
@@ -97,19 +66,19 @@
                     }"
                 >
                     <i class="bi bi-coin me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Kategori Biaya</span>
+                    <span class="d-none d-md-inline-block">Cost Category</span>
                 </Link>
             </li>
             <li class="nav-item my-1">
                 <Link
                     class="nav-link hover rounded"
-                    href="/admin/atur-biaya"
+                    :href="route('admin.cost.index')"
                     :class="{
-                        'bg-menu': $page.url === '/atur/biaya',
+                        'bg-menu': $page.component === 'Admin/Cost/Index',
                     }"
                 >
                     <i class="bi bi-cash-coin me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Atur Biaya</span>
+                    <span class="d-none d-md-inline-block">Set Cost</span>
                 </Link>
             </li>
             <li class="nav-item my-1">
@@ -128,7 +97,10 @@
         <!-- ini menu untuk user -->
         <ul
             class="nav flex-row flex-md-column justify-content-around"
-            v-if="$page.props.auth.user.roles == 'menunggu'"
+            v-if="
+                $page.props.auth.user.roles == 'menunggu' ||
+                $page.props.auth.user.roles == 'diterima'
+            "
         >
             <li class="nav-item my-1">
                 <Link
@@ -156,7 +128,10 @@
                     ></Link
                 >
             </li>
-            <li class="nav-item my-1">
+            <li
+                v-if="$page.props.auth.user.roles == 'menunggu'"
+                class="nav-item my-1"
+            >
                 <Link
                     class="nav-link hover rounded"
                     :href="route('user.jadwal')"

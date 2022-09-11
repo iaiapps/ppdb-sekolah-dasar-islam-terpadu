@@ -18,6 +18,7 @@
                             <th>School Origin</th>
                             <th>Created at</th>
                             <th>Action</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,41 +27,19 @@
                             <td>{{ st.school_origin }}</td>
                             <td>{{ st.created_at }}</td>
                             <td>
-                                <!-- Example single danger button -->
-                                <div class="btn-group">
-                                    <button
-                                        type="button"
-                                        class="btn btn-danger dropdown-toggle"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                    >
-                                        Action
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a class="dropdown-item" href="#"
-                                                >Action</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#"
-                                                >Another action</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#"
-                                                >Something else here</a
-                                            >
-                                        </li>
-                                        <li><hr class="dropdown-divider" /></li>
-                                        <li>
-                                            <a class="dropdown-item" href="#"
-                                                >Separated link</a
-                                            >
-                                        </li>
-                                    </ul>
-                                </div>
+                                <Link
+                                    as="button"
+                                    class="btn btn-sm mx-1 btn-success"
+                                    :href="route('admin.acc', st.id)"
+                                    >Acc</Link
+                                >
+                                <Link
+                                    as="button"
+                                    class="btn btn-sm mx-1 btn-danger"
+                                    >Reject</Link
+                                >
                             </td>
+                            <td>{{ st.roles }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -71,10 +50,12 @@
 </template>
 
 <script setup>
+import { Link } from "@inertiajs/inertia-vue3";
 import AppLayout from "../../../Layouts/App.vue";
 import Pagination from "../../../Components/Table/Pagination.vue";
 import { ref, watch, defineProps } from "vue";
 import { Inertia } from "@inertiajs/inertia";
+
 const cari = ref("");
 const props = defineProps({
     students: Object,

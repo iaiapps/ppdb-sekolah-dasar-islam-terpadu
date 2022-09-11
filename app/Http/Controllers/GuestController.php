@@ -37,7 +37,7 @@ class GuestController extends Controller
             } elseif ($user->hasRole('menunggu')) {
                 return redirect()->route('user.dashboard')->with('message', 'Selamat Datang');
             } elseif ($user->hasRole('diterima')) {
-                return Inertia::render('Guest/FormPendaftaran', compact('user'));
+                return redirect()->route('user.dashboard')->with('message', 'Selamat Datang');
             } else {
                 return redirect('/');
             }
