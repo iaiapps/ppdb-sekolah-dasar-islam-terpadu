@@ -35,4 +35,23 @@ class AdminController extends Controller
         $students =  Student::paginate(5);
         return Inertia::render('Admin/Students/Index', ['title' => 'Students', 'students' => $students]);
     }
+    public function TerimaTolak()
+    {
+        return Inertia::render('Admin/TerimaTolak');
+    }
+
+    public function Kategori()
+    {
+        return Inertia::render('Admin/Kategori');
+    }
+
+    public function AturBiaya()
+    {
+        return Inertia::render('Admin/AturBiaya');
+    }
+
+    public function Settings()
+    {
+        return Inertia::render('Admin/Settings');
+    }
 }

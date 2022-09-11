@@ -36,93 +36,67 @@
                     <span class="d-none d-md-inline-block">Users</span>
                 </Link>
             </li>
-            <li class="nav-item my-1">
-                <Link
-                    class="nav-link hover rounded"
-                    href="/admin/students"
-                    :class="{
-                        'bg-menu': $page.url === '/admin/students',
-                    }"
-                >
-                    <i class="bi bi-info-circle me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Students</span>
+            <!-- <li class="nav-item my-1">
+                <Link to="/admin/jadwal" class="nav-link hover rounded" href="/madin/" :class="{
+                    'bg-menu': $page.url === 'Madin/KelasIndex',
+                }">
+                <i class="bi bi-calendar3 me-0 me-md-2"></i>
+                <span class="d-none d-md-inline-block">Jadwal Test</span>
                 </Link>
-            </li>
+            </li> -->
             <li class="nav-item my-1">
                 <Link
-                    to="/admin/jadwal"
                     class="nav-link hover rounded"
-                    href="/madin/"
+                    href="/admin/terima-tolak"
                     :class="{
-                        'bg-menu': $page.url === 'Madin/KelasIndex',
+                        'bg-menu': $page.url === '/admin/terima-tolak',
                     }"
                 >
-                    <i class="bi bi-calendar3 me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Jadwal Test</span>
-                </Link>
-            </li>
-            <li class="nav-item my-1">
-                <Link
-                    to="/admin/terimatolak"
-                    class="nav-link hover rounded"
-                    href="/madin/"
-                    :class="{
-                        'bg-menu': $page.url === 'Madin/KelasIndex',
-                    }"
-                >
-                    <i class="bi bi-coin me-0 me-md-2"></i>
+                    <i class="bi bi bi-search me-0 me-md-2"></i>
                     <span class="d-none d-md-inline-block">Terima/Tolak</span>
                 </Link>
             </li>
+            <!-- <li class="nav-item my-1">
+                <Link to="/admin/status" class="nav-link hover rounded" href="/madin/" :class="{
+                    'bg-menu': $page.url === 'Madin/KelasIndex',
+                }">
+                <i class="bi bi-coin me-0 me-md-2"></i>
+                <span class="d-none d-md-inline-block">Status</span>
+                </Link>
+            </li> -->
             <li class="nav-item my-1">
                 <Link
-                    to="/admin/status"
                     class="nav-link hover rounded"
-                    href="/madin/"
+                    href="/admin/kategori-biaya"
                     :class="{
-                        'bg-menu': $page.url === 'Madin/KelasIndex',
+                        'bg-menu': $page.url === '/admin/kategori-biaya',
                     }"
                 >
                     <i class="bi bi-coin me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Status</span>
+                    <span class="d-none d-md-inline-block">Kategori Biaya</span>
                 </Link>
             </li>
             <li class="nav-item my-1">
                 <Link
-                    to="/admin/aturkategori"
                     class="nav-link hover rounded"
-                    href="/madin/"
+                    href="/admin/atur-biaya"
                     :class="{
-                        'bg-menu': $page.url === 'Madin/KelasIndex',
+                        'bg-menu': $page.url === '/atur/biaya',
                     }"
                 >
-                    <i class="bi bi-coin me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Atur Kategori</span>
+                    <i class="bi bi-cash-coin me-0 me-md-2"></i>
+                    <span class="d-none d-md-inline-block">Atur Biaya</span>
                 </Link>
             </li>
             <li class="nav-item my-1">
                 <Link
-                    to="/admin/daftarulang"
                     class="nav-link hover rounded"
-                    href="/madin/"
+                    href="/admin/settings"
                     :class="{
-                        'bg-menu': $page.url === 'Madin/KelasIndex',
+                        'bg-menu': $page.url === '/admin/settings',
                     }"
                 >
-                    <i class="bi bi-coin me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Daftar Ulang</span>
-                </Link>
-            </li>
-            <li class="nav-item my-1">
-                <Link
-                    to="/admin/setting"
-                    class="nav-link hover rounded"
-                    href="/madin/"
-                    :class="{
-                        'bg-menu': $page.url === 'Madin/KelasIndex',
-                    }"
-                >
-                    <i class="bi bi-coin me-0 me-md-2"></i>
+                    <i class="bi bi bi-sliders me-0 me-md-2"></i>
                     <span class="d-none d-md-inline-block">Setting</span>
                 </Link>
             </li>

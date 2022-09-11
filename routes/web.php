@@ -34,9 +34,16 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
     Route::get('/admin/{user}/user-aktifkan', [AdminController::class, 'aktifkanUser'])->name('admin.user-aktifkan');
     Route::get('/admin/students', [AdminController::class, 'students'])->name('admin.students');
+    //route bawahnya 
+    Route::get('/admin/terima-tolak', [AdminController::class, 'TerimaTolak'])->name('admin.terima-tolak');
+    Route::get('/admin/kategori-biaya', [AdminController::class, 'Kategori'])->name('admin.kategori-biaya');
+    Route::get('/admin/atur-biaya', [AdminController::class, 'AturBiaya'])->name('admin.atur-biaya');
+    Route::get('/admin/settings', [AdminController::class, 'Settings'])->name('admin.settings');
+
     // Route::get('/admin/user-search', [AdminController::class, 'userSearch'])->name('user.search');
 });
 
+//USER
 Route::group(['middleware' => ['role:menunggu']], function () {
     Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
     Route::get('/user/informasi', [UserController::class, 'informasi'])->name('user.informasi');
