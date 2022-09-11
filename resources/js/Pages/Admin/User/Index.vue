@@ -1,6 +1,14 @@
 <template>
     <AppLayout>
         <div class="col-12 col-md-8 px-0 px-md-3 mt-3 mt-md-0">
+            <div class="alert alert-success alert-dismissible mb-3">
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                ></button>
+                {{ $page.props.flash.message }}
+            </div>
             <div class="bg-white rounded p-3 mb-3">
                 <p class="fs-4 m-0">Users</p>
             </div>
@@ -25,7 +33,7 @@
                         <tr v-for="(item, index) in users.data" :key="item.id">
                             <!-- <th scope="row">{{ index + 1 }}</th> -->
                             <td>{{ item.email }}</td>
-                            <td>{{ item.name }}</td>
+                            <td>{{ item.student }}</td>
                             <td>
                                 <Link
                                     as="button"

@@ -26,6 +26,7 @@ class AdminController extends Controller
     public function aktifkanUser(User $user)
     {
         $user->assignRole('membayar');
-        return redirect()->back()->with('message', 'Berhasil');
+        $pesan = 'akun A/N: ' . $user->name . ' Berhasil diaktifkan';
+        return redirect()->back()->with('message', $pesan);
     }
 }
