@@ -30,6 +30,6 @@ import { Link } from "@inertiajs/inertia-vue3";
 import { defineProps } from "vue";
 defineProps({
     links: Array,
-    total: Object,
+    total: Number,
 });
 </script>

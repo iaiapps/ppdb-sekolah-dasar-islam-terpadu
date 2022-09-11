@@ -48,6 +48,18 @@
                     <span class="d-none d-md-inline-block">Students</span>
                 </Link>
             </li>
+            <li class="nav-item my-1">
+                <Link
+                    class="nav-link hover rounded"
+                    href="/admin/set-schedule"
+                    :class="{
+                        'bg-menu': $page.url === '/admin/set-schedule',
+                    }"
+                >
+                    <i class="bi bi-info-circle me-0 me-md-2"></i>
+                    <span class="d-none d-md-inline-block">Set Schedule</span>
+                </Link>
+            </li>
             <!-- <li class="nav-item my-1">
                 <Link to="/admin/jadwal" class="nav-link hover rounded" href="/madin/" :class="{
                     'bg-menu': $page.url === 'Madin/KelasIndex',

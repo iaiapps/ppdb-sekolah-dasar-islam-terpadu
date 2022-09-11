@@ -36,8 +36,20 @@ class AdminController extends Controller
             ->when($request->cari, function ($query, $cari) {
                 $query->where('full_name', 'LIKE', "%{$cari}%");
             })
-            ->paginate(5);
+            ->paginate()
+            ->withQueryString();
         return Inertia::render('Admin/Students/Index', ['title' => 'Students', 'students' => $students]);
+    }
+
+    public function setSchedule(Request $request)
+    {
+        $students =  Student::query()
+            ->when($request->cari, function ($query, $cari) {
+                $query->where('full_name', 'LIKE', "%{$cari}%");
+            })
+            ->paginate()
+            ->withQueryString();
+        return Inertia::render('Admin/Students/SetSchedule', compact('students'));
     }
     public function TerimaTolak()
     {
