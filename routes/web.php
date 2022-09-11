@@ -35,6 +35,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/admin/{user}/user-aktifkan', [AdminController::class, 'aktifkanUser'])->name('admin.user-aktifkan');
     // Route::get('/admin/user-search', [AdminController::class, 'userSearch'])->name('user.search');
 });
+
 Route::group(['middleware' => ['role:menunggu']], function () {
     Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
 });

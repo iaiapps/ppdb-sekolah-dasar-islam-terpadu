@@ -12,7 +12,6 @@ class UserController extends Controller
     public function index()
     {
         $u = Auth::user();
-
         return Inertia::render('User/Index', ['status' => $u->roles[0]->name, 'student' => $u->student]);
     }
     public function show()
