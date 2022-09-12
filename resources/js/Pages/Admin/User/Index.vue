@@ -1,17 +1,29 @@
 <template>
     <AppLayout>
         <div class="col-12 col-md-8 px-0 px-md-3 mt-3 mt-md-0">
-            <div v-if="$page.props.flash.message" class="bg-white text-center alert alert-dismissible mb-3">
+            <div
+                v-if="$page.props.flash.message"
+                class="bg-white text-center alert alert-dismissible mb-3"
+            >
                 {{ $page.props.flash.message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"
+                ></button>
             </div>
             <div class="bg-white rounded p-3 mb-3">
                 <p class="fs-4 m-0">Users</p>
             </div>
             <div class="bg-white rounded p-3">
                 <div>
-                    <input type="text" placeholder="Cari nama atau nomor wa" class="form-control mb-3"
-                        v-model="search" />
+                    <input
+                        type="text"
+                        placeholder="Cari nama atau nomor wa"
+                        class="form-control mb-3"
+                        v-model="search"
+                    />
                 </div>
                 <table class="table table-striped">
                     <thead>
@@ -27,11 +39,16 @@
                             <td scope="row">{{ index + 1 }}</td>
                             <td>{{ item.email }}</td>
                             <td>{{ item.name }}</td>
+                            <!-- <td>{{ users.da }}</td> -->
                             <td>
-                                <Link as="button" class="btn btn-sm btn-secondary" :href="
-                                    route('admin.user-aktifkan', item.id)
-                                ">
-                                Aktifkan
+                                <Link
+                                    as="button"
+                                    class="btn btn-sm btn-secondary"
+                                    :href="
+                                        route('admin.user-aktifkan', item.id)
+                                    "
+                                >
+                                    Aktifkan
                                 </Link>
                             </td>
                         </tr>
