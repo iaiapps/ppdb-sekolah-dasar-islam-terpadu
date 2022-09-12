@@ -50,7 +50,7 @@
                         </div>
                         <div class="mb-3">
                             <input
-                                type="number"
+                                type="text"
                                 v-model="form.hp"
                                 class="form-control form-control-lg mb-3"
                                 :class="{ 'is-invalid': errors.hp }"
