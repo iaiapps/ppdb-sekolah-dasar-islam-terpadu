@@ -54,7 +54,7 @@
                                 v-model="form.hp"
                                 class="form-control form-control-lg mb-3"
                                 :class="{ 'is-invalid': errors.hp }"
-                                placeholder="No WhatssApp (Aktif)"
+                                placeholder="No Wa Aktif (cth: 085xxxx)"
                             />
                             <div class="invalid-feedback">
                                 {{ errors.hp }}
