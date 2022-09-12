@@ -90,4 +90,9 @@ class AdminController extends Controller
     {
         return Inertia::render('Admin/Cost/Edit', compact('cost'));
     }
+    public function costUpdate(CostCategory $cost, Request $request)
+    {
+        $cost->update($request->except('id'));
+        return redirect()->route('admin.cost.index')->with('message', 'Edited cost category');
+    }
 }

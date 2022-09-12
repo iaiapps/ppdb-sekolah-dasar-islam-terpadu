@@ -5,13 +5,17 @@
                 <p class="fs-4 m-0">Set Cost Category</p>
             </div>
             <div class="bg-white rounded p-3">
-                <form @submit.prevent="editCost">
+                <form
+                    @submit.prevent="
+                        form.put(route('admin.cost.update', form.id))
+                    "
+                >
                     <div class="input-group mb-3">
                         <span class="input-group-text">Kategori</span>
                         <input
                             type="text"
                             class="form-control"
-                            :value="cost.name"
+                            v-model="form.name"
                         />
                     </div>
                     <div class="input-group mb-3">
@@ -19,7 +23,7 @@
                         <input
                             type="text"
                             class="form-control"
-                            :value="cost.gender"
+                            v-model="form.gender"
                         />
                     </div>
                     <div class="input-group mb-3">
@@ -28,7 +32,7 @@
                             for="gedung"
                             type="text"
                             class="form-control"
-                            :value="cost.gedung"
+                            v-model="form.gedung"
                         />
                     </div>
                     <div class="input-group mb-3">
@@ -37,7 +41,7 @@
                             for="perpustakaan"
                             type="text"
                             class="form-control"
-                            :value="cost.perpustakaan"
+                            v-model="form.perpustakaan"
                         />
                     </div>
                     <div class="input-group mb-3">
@@ -46,7 +50,7 @@
                             for="kegiatan"
                             type="text"
                             class="form-control"
-                            :value="cost.kegiatan"
+                            v-model="form.kegiatan"
                         />
                     </div>
                     <div class="input-group mb-3">
@@ -55,7 +59,7 @@
                             for="bukumedia"
                             type="text"
                             class="form-control"
-                            :value="cost.bukumedia"
+                            v-model="form.bukumedia"
                         />
                     </div>
                     <div class="input-group mb-3">
@@ -64,7 +68,7 @@
                             for="seragam"
                             type="text"
                             class="form-control"
-                            :value="cost.seragam"
+                            v-model="form.seragam"
                         />
                     </div>
                     <div class="input-group mb-3">
@@ -73,7 +77,7 @@
                             for="jilbab"
                             type="text"
                             class="form-control"
-                            :value="cost.jilbab"
+                            v-model="form.jilbab"
                         />
                     </div>
                     <div class="input-group mb-3">
@@ -82,15 +86,13 @@
                             for="ipp"
                             type="text"
                             class="form-control"
-                            :value="cost.ipp"
+                            v-model="form.ipp"
                         />
                     </div>
 
-                    <input
-                        type="submit"
-                        value="Update"
-                        class="btn btn-oorange"
-                    />
+                    <button type="submit" class="btn btn-oorange">
+                        Update
+                    </button>
                 </form>
             </div>
         </div>
@@ -100,6 +102,7 @@
 import { Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import AppLayout from "../../../Layouts/App.vue";
+import { useForm } from "@inertiajs/inertia-vue3";
 export default {
     components: {
         AppLayout,
@@ -107,6 +110,26 @@ export default {
     },
     props: {
         cost: Object,
+    },
+    setup(props) {
+        // const form = useForm({
+        //     name: props.cost.name,
+        //     gender: props.cost.gender,
+        //     gedung: props.cost.gedung,
+        //     perpustakaan: props.cost.perpustakaan,
+        //     kegiatan: props.cost.kegiatan,
+        //     bukumedia: props.cost.bukumedia,
+        //     seragam: props.cost.seragam,
+        //     jilbab: props.cost.jilbab,
+        //     ipp: props.cost.ipp,
+        // });
+
+        // atau bisa langsung aja
+        const form = useForm(props.cost);
+
+        return {
+            form,
+        };
     },
 };
 </script>

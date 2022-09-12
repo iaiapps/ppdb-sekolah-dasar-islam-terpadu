@@ -44,6 +44,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     // COST
     Route::get('/admin/cost/index', [AdminController::class, 'cost'])->name('admin.cost.index');
     Route::get('/admin/cost/{cost}/edit', [AdminController::class, 'costEdit'])->name('admin.cost.edit');
+    Route::put('/admin/cost/{cost}/edit', [AdminController::class, 'costUpdate'])->name('admin.cost.update');
     // Route::get('/admin/user-search', [AdminController::class, 'userSearch'])->name('user.search');
 });
 

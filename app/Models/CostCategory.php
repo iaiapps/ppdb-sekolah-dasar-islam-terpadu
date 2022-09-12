@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class CostCategory extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     public function student()
     {
         return $this->belongsTo(Student::class);
