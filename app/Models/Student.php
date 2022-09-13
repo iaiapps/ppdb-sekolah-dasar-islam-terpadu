@@ -20,7 +20,7 @@ class Student extends Model
     {
         return Carbon::parse($date)->diffForHumans();
     }
-    public function costCategory()
+    public function cost()
     {
         return $this->hasOne(CostCategory::class);
     }

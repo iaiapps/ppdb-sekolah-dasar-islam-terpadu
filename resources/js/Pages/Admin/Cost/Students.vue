@@ -11,18 +11,21 @@
             <form @submit.prevent="submit">
                 <div class="d-flex justify-content-center">
                     <select v-model="form.student_id" class="form-select mx-1">
+                        <option disabled selected>Student</option>
                         <option
-                            v-for="st in students"
-                            :value="st.id"
+                            v-for="(st, index) in students"
+                            :key="st.id"
                             for="student"
+                            :value="st.id"
                         >
                             {{ st.full_name }}
                         </option>
                     </select>
                     <select
-                        v-model="form.cost_category_id"
+                        v-model="form.cost_categories_id"
                         class="form-select mx-1"
                     >
+                        <option selected disabled>Choose Category</option>
                         <option v-for="cost in costs" :value="cost.id">
                             {{ cost.name }}
                         </option>
@@ -46,7 +49,7 @@
                 </thead>
                 <tbody>
                     <tr
-                        v-for="(item, index) in students_applied"
+                        v-for="(item, index) in students_applied.data"
                         :key="item.id"
                     >
                         <td>{{ item.wa }}</td>
@@ -76,7 +79,7 @@ export default {
     setup() {
         const form = {
             student_id: "",
-            cost_category_id: "",
+            cost_categories_id: "",
         };
         const submit = () => {
             Inertia.post(route("admin.cost.apply"), form);

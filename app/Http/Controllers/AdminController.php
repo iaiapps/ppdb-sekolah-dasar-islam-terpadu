@@ -93,26 +93,25 @@ class AdminController extends Controller
     public function costStudents()
     {
         $costs = CostCategory::all();
-        $students = Student::whereNull('cost_category_id')->get();
-        $students_applied = Student::whereNotNull('cost_category_id')
+        $students = Student::whereNull('cost_categories_id')->get();
+        $students_applied = Student::where('cost_categories_id', '!=', null)
             ->paginate(300)
-            ->withQueryString()
             ->through(function ($item) {
+                $cost = CostCategory::find($item->cost_categories_id)->first()->name;
                 return [
+                    'id' => $item->id,
                     'name' => $item->full_name,
                     'wa' => $item->user->email,
-                    'cost' => $item->costCategory->name
+                    'cost' => $cost
                 ];
             });
-
         return Inertia::render('Admin/Cost/Students', compact('costs', 'students', 'students_applied'));
     }
     public function costApply(Request $request)
     {
-        // dd($request->all());
         $s = Student::find($request->student_id);
         $s->update([
-            'cost_category_id' => $request->cost_category_id
+            'cost_categories_id' => $request->cost_categories_id
         ]);
         return redirect()->back()->with('message', 'Successfully applied');
     }
