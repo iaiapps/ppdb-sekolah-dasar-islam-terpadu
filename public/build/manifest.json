@@ -1,8 +1,4 @@
 {
-  "storage/app/public/img/backdash.svg": {
-    "file": "assets/backdash.0038e869.svg",
-    "src": "storage/app/public/img/backdash.svg"
-  },
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
     "file": "assets/bootstrap-icons.c69bf1cc.woff2",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
@@ -10,6 +6,10 @@
   "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
     "file": "assets/bootstrap-icons.13977b4a.woff",
     "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
+  },
+  "storage/app/public/img/backdash.svg": {
+    "file": "assets/backdash.0038e869.svg",
+    "src": "storage/app/public/img/backdash.svg"
   },
   "resources/css/app.css": {
     "file": "assets/app.7c3c19f8.js",
@@ -405,61 +405,61 @@
       "assets/Show.15a49e55.css"
     ]
   },
-  "resources/js/app.css": {
-    "file": "assets/app.eea6c7b3.css",
-    "src": "resources/js/app.css"
-  },
-  "App.css": {
-    "file": "assets/App.ef694aba.css",
-    "src": "App.css"
-  },
-  "resources/js/Pages/Auth/Login.css": {
-    "file": "assets/Login.5db471e4.css",
-    "src": "resources/js/Pages/Auth/Login.css"
-  },
-  "resources/js/Pages/Admin/Index.css": {
-    "file": "assets/Index.e8ea20c9.css",
-    "src": "resources/js/Pages/Admin/Index.css"
-  },
-  "resources/js/Pages/Admin/AturBiaya.css": {
-    "file": "assets/AturBiaya.6fdec7fd.css",
-    "src": "resources/js/Pages/Admin/AturBiaya.css"
-  },
-  "resources/js/Pages/Admin/Kategori.css": {
-    "file": "assets/Kategori.ca972ecf.css",
-    "src": "resources/js/Pages/Admin/Kategori.css"
-  },
-  "resources/js/Pages/Admin/TerimaTolak.css": {
-    "file": "assets/TerimaTolak.a9395469.css",
-    "src": "resources/js/Pages/Admin/TerimaTolak.css"
-  },
-  "resources/js/Pages/Guest/CreateAccount.css": {
-    "file": "assets/CreateAccount.e71eb775.css",
-    "src": "resources/js/Pages/Guest/CreateAccount.css"
-  },
-  "resources/js/Pages/Error.css": {
-    "file": "assets/Error.15a49e55.css",
-    "src": "resources/js/Pages/Error.css"
-  },
-  "resources/js/Pages/Guest/Bridge.css": {
-    "file": "assets/Bridge.7f95a865.css",
-    "src": "resources/js/Pages/Guest/Bridge.css"
-  },
-  "resources/js/Pages/Guest/FormPendaftaran.css": {
-    "file": "assets/FormPendaftaran.3396e045.css",
-    "src": "resources/js/Pages/Guest/FormPendaftaran.css"
-  },
-  "resources/js/Pages/Guest/LandingPage.css": {
-    "file": "assets/LandingPage.73f1d2a4.css",
-    "src": "resources/js/Pages/Guest/LandingPage.css"
+  "resources/js/Pages/User/Show.css": {
+    "file": "assets/Show.15a49e55.css",
+    "src": "resources/js/Pages/User/Show.css"
   },
   "resources/js/Pages/User/DaftarulangPage.css": {
     "file": "assets/DaftarulangPage.15a49e55.css",
     "src": "resources/js/Pages/User/DaftarulangPage.css"
   },
-  "resources/js/Pages/User/Show.css": {
-    "file": "assets/Show.15a49e55.css",
-    "src": "resources/js/Pages/User/Show.css"
+  "resources/js/Pages/Admin/Index.css": {
+    "file": "assets/Index.e8ea20c9.css",
+    "src": "resources/js/Pages/Admin/Index.css"
+  },
+  "resources/js/Pages/Admin/Kategori.css": {
+    "file": "assets/Kategori.ca972ecf.css",
+    "src": "resources/js/Pages/Admin/Kategori.css"
+  },
+  "resources/js/Pages/Auth/Login.css": {
+    "file": "assets/Login.5db471e4.css",
+    "src": "resources/js/Pages/Auth/Login.css"
+  },
+  "resources/js/Pages/Admin/TerimaTolak.css": {
+    "file": "assets/TerimaTolak.a9395469.css",
+    "src": "resources/js/Pages/Admin/TerimaTolak.css"
+  },
+  "resources/js/Pages/Error.css": {
+    "file": "assets/Error.15a49e55.css",
+    "src": "resources/js/Pages/Error.css"
+  },
+  "resources/js/Pages/Guest/FormPendaftaran.css": {
+    "file": "assets/FormPendaftaran.3396e045.css",
+    "src": "resources/js/Pages/Guest/FormPendaftaran.css"
+  },
+  "resources/js/Pages/Admin/AturBiaya.css": {
+    "file": "assets/AturBiaya.6fdec7fd.css",
+    "src": "resources/js/Pages/Admin/AturBiaya.css"
+  },
+  "resources/js/Pages/Guest/Bridge.css": {
+    "file": "assets/Bridge.7f95a865.css",
+    "src": "resources/js/Pages/Guest/Bridge.css"
+  },
+  "resources/js/Pages/Guest/CreateAccount.css": {
+    "file": "assets/CreateAccount.e71eb775.css",
+    "src": "resources/js/Pages/Guest/CreateAccount.css"
+  },
+  "resources/js/Pages/Guest/LandingPage.css": {
+    "file": "assets/LandingPage.73f1d2a4.css",
+    "src": "resources/js/Pages/Guest/LandingPage.css"
+  },
+  "App.css": {
+    "file": "assets/App.ef694aba.css",
+    "src": "App.css"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app.eea6c7b3.css",
+    "src": "resources/js/app.css"
   },
   "resources/css/scss/custom.scss": {
     "file": "assets/custom.2a804168.css",

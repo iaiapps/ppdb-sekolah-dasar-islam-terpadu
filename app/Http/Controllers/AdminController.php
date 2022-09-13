@@ -24,7 +24,7 @@ class AdminController extends Controller
             ->when($request->search, function ($query, $search) {
                 $query->where('name', 'LIKE', "%{$search}%");
             })
-            ->paginate()
+            ->paginate(300)
             ->withQueryString()
             ->through(function ($item) {
                 if ($item->roles[0]->name === 'membuat_akun') {
@@ -54,7 +54,7 @@ class AdminController extends Controller
             ->when($request->cari, function ($query, $cari) {
                 $query->where('full_name', 'LIKE', "%{$cari}%");
             })
-            ->paginate()
+            ->paginate(300)
             ->withQueryString()
             ->through(function ($item) {
                 $status = $item->user->roles[0]->name;
