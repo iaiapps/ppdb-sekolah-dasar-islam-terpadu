@@ -17,29 +17,54 @@
                             <th>Name</th>
                             <th>School Origin</th>
                             <th>Created at</th>
+                            <!-- <th>Status</th> -->
                             <th>Action</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(st, index) in students.data" :key="st.id">
-                            <td>{{ st.full_name }}</td>
-                            <td>{{ st.school_origin }}</td>
-                            <td>{{ st.created_at }}</td>
+                        <tr
+                            v-for="(st, index) in students.data"
+                            :key="st.id"
+                            :class="{ 'table-danger': st.status === 'reject' }"
+                        >
                             <td>
                                 <Link
-                                    as="button"
-                                    class="btn btn-sm mx-1 btn-success"
-                                    :href="route('admin.acc', st.id)"
-                                    >Acc</Link
+                                    :href="
+                                        route('admin.students.detail', st.id)
+                                    "
                                 >
-                                <Link
-                                    as="button"
-                                    class="btn btn-sm mx-1 btn-danger"
-                                    >Reject</Link
+                                    {{ st.full_name }}</Link
                                 >
                             </td>
-                            <td>{{ st.roles }}</td>
+                            <td>{{ st.school_origin }}</td>
+                            <td>{{ st.created_at }}</td>
+                            <!-- <td>{{ st.status }}</td> -->
+                            <td>
+                                <Link
+                                    v-if="st.status === 'acc'"
+                                    as="button"
+                                    class="btn btn-sm mx-1 btn-danger"
+                                    :href="
+                                        route('admin.acc-or-reject', [
+                                            st.id,
+                                            false,
+                                        ])
+                                    "
+                                    >Reject</Link
+                                >
+                                <Link
+                                    v-if="st.status === 'reject'"
+                                    as="button"
+                                    class="btn btn-sm mx-1 btn-success"
+                                    :href="
+                                        route('admin.acc-or-reject', [
+                                            st.id,
+                                            true,
+                                        ])
+                                    "
+                                    >Acc</Link
+                                >
+                            </td>
                         </tr>
                     </tbody>
                 </table>

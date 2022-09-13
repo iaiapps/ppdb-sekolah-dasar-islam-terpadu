@@ -31,6 +31,7 @@
                             <th scope="col">No.</th>
                             <th scope="col">No. WhatssApp</th>
                             <th scope="col">Nama</th>
+                            <th scope="col">Ket</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -38,10 +39,16 @@
                         <tr v-for="(item, index) in users.data" :key="item.id">
                             <td scope="row">{{ index + 1 }}</td>
                             <td>{{ item.email }}</td>
-                            <td>{{ item.name }}</td>
-                            <!-- <td>{{ users.da }}</td> -->
                             <td>
                                 <Link
+                                    :href="route('admin.user.detail', item.id)"
+                                    >{{ item.name }}</Link
+                                >
+                            </td>
+                            <td>{{ item.role }}</td>
+                            <td>
+                                <Link
+                                    v-show="item.aktifkan"
                                     as="button"
                                     class="btn btn-sm btn-secondary"
                                     :href="

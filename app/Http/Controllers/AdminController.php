@@ -22,7 +22,21 @@ class AdminController extends Controller
                 $query->where('name', 'LIKE', "%{$search}%");
             })
             ->paginate()
-            ->withQueryString();
+            ->withQueryString()
+            ->through(function ($item) {
+                if ($item->roles[0]->name === 'membuat_akun') {
+                    $aktifkan = true;
+                } else {
+                    $aktifkan = false;
+                }
+                return [
+                    'id' => $item->id,
+                    'name' => $item->name,
+                    'email' => $item->email,
+                    'aktifkan' => $aktifkan,
+                    'role' => $item->roles[0]->name,
+                ];
+            });
         return Inertia::render('Admin/User/Index', ['users' => $users]);
     }
     public function aktifkanUser(User $user)
@@ -38,16 +52,25 @@ class AdminController extends Controller
                 $query->where('full_name', 'LIKE', "%{$cari}%");
             })
             ->paginate()
-            ->withQueryString();
-        // ->transform(function ($student) {
-        //     return [
-        //         'id' => $student->id,
-        //         'full_name' => $student->full_name,
-        //         'school_origin' => $student->school_origin,
-        //         'created_at' => $student->created_at,
-        //         'roles' => $student->user->roles[0]->name,
-        //     ];
-        // });
+            ->withQueryString()
+            ->through(function ($item) {
+                $status = $item->user->roles[0]->name;
+                if ($status === 'diterima') {
+                    $status = 'acc';
+                } else if ($status === 'ditolak') {
+                    $status = 'reject';
+                } else {
+                    $status = 'menunggu';
+                }
+                return [
+                    'id' => $item->id,
+                    'full_name' => $item->full_name,
+                    'school_origin' => $item->school_origin,
+                    'created_at' => $item->created_at,
+                    'status' => $status,
+                ];
+            });
+
         return Inertia::render('Admin/Students/Index', ['title' => 'Students', 'students' => $students]);
     }
 
@@ -76,9 +99,13 @@ class AdminController extends Controller
     {
         return Inertia::render('Admin/Settings');
     }
-    public function acc(Student $student)
+    public function accOrReject(Student $student, $acc)
     {
-        $student->user->syncRoles('diterima');
+        if ($acc === "true") {
+            $student->user->syncRoles('diterima');
+        } else {
+            $student->user->syncRoles('ditolak');
+        }
         return back();
     }
     public function cost()
@@ -94,5 +121,13 @@ class AdminController extends Controller
     {
         $cost->update($request->except('id'));
         return redirect()->route('admin.cost.index')->with('message', 'Edited cost category');
+    }
+    public function userDetail(User $user)
+    {
+        return Inertia::render('Admin/Students/Show', ['student' => $user->student]);
+    }
+    public function studentShow(Student $student)
+    {
+        return Inertia::render('Admin/Students/Show', ['student' => $student]);
     }
 }
