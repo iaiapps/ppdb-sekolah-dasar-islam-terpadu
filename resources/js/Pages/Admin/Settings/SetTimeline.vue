@@ -4,8 +4,17 @@
             class="table-responsive bg-white rounded p-3 position-relative mb-3"
         >
             <div class="mb-5">
-                <p class="fs-5">Setting Timeline</p>
+                <div class="d-md-flex justify-content-between">
+                    <p class="fs-5">Setting Timeline</p>
+                    <!-- <button
+                        :href="route('timeline.create')"
+                        class="btn btn-sm btn-oorange"
+                    >
+                        +
+                    </button> -->
+                </div>
                 <hr />
+
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -14,12 +23,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="set in sets">
+                        <tr v-for="(set, index) in sets" :key="set.id">
                             <td>{{ set.info }}</td>
                             <td>{{ set.date }}</td>
                             <td>
-                                <Link as="button" class="btn btn-sm btn-oorange"
-                                    >Edit</Link
+                                <a
+                                    as="button"
+                                    class="btn btn-sm btn-oorange"
+                                    :href="route('timeline.edit', set.id)"
+                                    >Edit</a
                                 >
                             </td>
                         </tr>

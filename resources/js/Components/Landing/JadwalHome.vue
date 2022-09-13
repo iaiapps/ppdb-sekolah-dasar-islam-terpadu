@@ -45,7 +45,7 @@
                         Pembayaran Biaya
                         <br />Daftar Ulang
                     </h5>
-                    <p class="fs-4 py-2 text-black">13 Mar - 10 April 2023</p>
+                    <p class="fs-4 py-2 text-black">13 Mar - 27 Mar 2023</p>
                     <hr class="w-50 text-center" />
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 <div class="p-3 bg-card">
                     <img class="img-ket" :src="'storage/img/6.png'" />
                     <h5 class="py-2 fs-3 text-white mb-0">
-                        Pembagian seragam, buku, & kelas
+                        Pembagian seragam & kelas
                     </h5>
                     <p class="fs-4 py-2 text-black">7 Juli 2023</p>
                     <hr class="w-50 text-center" />

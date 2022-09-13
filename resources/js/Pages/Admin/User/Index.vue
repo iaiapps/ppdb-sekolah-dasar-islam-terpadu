@@ -1,18 +1,7 @@
 <template>
     <AppLayout>
         <div class="col-12 col-md-8 px-0 px-md-3 mt-3 mt-md-0">
-            <div
-                v-if="$page.props.flash.message"
-                class="bg-white text-center alert alert-dismissible mb-3"
-            >
-                {{ $page.props.flash.message }}
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="alert"
-                    aria-label="Close"
-                ></button>
-            </div>
+            <Alert />
             <div class="table-responsive bg-white rounded p-3 mb-3">
                 <p class="fs-4 m-0">Users</p>
             </div>
@@ -72,6 +61,7 @@ import AppLayout from "../../../Layouts/App.vue";
 import Pagination from "../../../Components/Table/Pagination.vue";
 import { ref, watch, defineProps } from "vue";
 import { Inertia } from "@inertiajs/inertia";
+import Alert from "../../../Components/dashboard/Alert.vue";
 
 const props = defineProps({
     users: Object,

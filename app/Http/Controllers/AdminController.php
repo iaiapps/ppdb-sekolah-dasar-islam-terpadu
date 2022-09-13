@@ -112,6 +112,15 @@ class AdminController extends Controller
         $costs = CostCategory::all();
         return Inertia::render('Admin/Cost/Index', compact('costs'));
     }
+    public function costCreate()
+    {
+        return Inertia::render('Admin/Cost/Create');
+    }
+    public function costStore(Request $request)
+    {
+        CostCategory::create($request->all());
+        return redirect()->route('admin.cost.index')->with('message', 'Success, Add cost category');
+    }
     public function costEdit(CostCategory $cost)
     {
         return Inertia::render('Admin/Cost/Edit', compact('cost'));

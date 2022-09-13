@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SetPpdbController;
+use App\Http\Controllers\SetTimelineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,9 +49,14 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/admin/kategori-biaya', [AdminController::class, 'Kategori'])->name('admin.kategori-biaya');
     Route::get('/admin/atur-biaya', [AdminController::class, 'AturBiaya'])->name('admin.atur-biaya');
     // COST
+    Route::get('/admin/cost/create', [AdminController::class, 'costCreate'])->name('admin.cost.create');
+    Route::post('/admin/cost/create', [AdminController::class, 'costStore'])->name('admin.cost.store');
     Route::get('/admin/cost/index', [AdminController::class, 'cost'])->name('admin.cost.index');
     Route::get('/admin/cost/{cost}/edit', [AdminController::class, 'costEdit'])->name('admin.cost.edit');
     Route::put('/admin/cost/{cost}/edit', [AdminController::class, 'costUpdate'])->name('admin.cost.update');
+
+    Route::resource('timeline', SetTimelineController::class);
+    Route::resource('ppdb', SetPpdbController::class);
 });
 
 //USER

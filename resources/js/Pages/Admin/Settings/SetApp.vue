@@ -4,7 +4,15 @@
             class="table-responsive bg-white rounded p-3 position-relative mb-3"
         >
             <div class="mb-5">
-                <p class="fs-5">Setting Application</p>
+                <div class="d-md-flex justify-content-between">
+                    <p class="fs-5">Setting App</p>
+                    <!-- <button
+                        :href="route('timeline.create')"
+                        class="btn btn-sm btn-oorange"
+                    >
+                        +
+                    </button> -->
+                </div>
                 <hr />
                 <table class="table table-striped">
                     <thead>
@@ -19,8 +27,10 @@
                             <td>{{ set.key }}</td>
                             <td>{{ set.value }}</td>
                             <td>
-                                <Link as="button" class="btn btn-sm btn-oorange"
-                                    >Edit</Link
+                                <a
+                                    :href="route('ppdb.edit', set.id)"
+                                    class="btn btn-sm btn-oorange"
+                                    >Edit</a
                                 >
                             </td>
                         </tr>

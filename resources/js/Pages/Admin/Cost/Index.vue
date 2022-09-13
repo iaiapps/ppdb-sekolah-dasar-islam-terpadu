@@ -1,10 +1,17 @@
 <template>
     <AppLayout>
         <div class="col-md px-0 px-md-3 mt-3 mt-md-0">
+            <Alert />
             <div class="table-responsive bg-white rounded p-3 mb-3">
                 <p class="fs-4 m-0">Set Cost Category</p>
             </div>
             <div class="table-responsive bg-white rounded p-3 vh-100">
+                <Link
+                    as="button"
+                    class="btn btn-sm btn-oorange text-light mb-3"
+                    :href="route('admin.cost.create')"
+                    ><i class="bi bi-plus-square-fill"></i> Add Category</Link
+                >
                 <table class="table table-responsive">
                     <thead>
                         <tr>
@@ -59,10 +66,12 @@
 import { Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import AppLayout from "../../../Layouts/App.vue";
+import Alert from "../../../Components/dashboard/Alert.vue";
 export default {
     components: {
         AppLayout,
         Link,
+        Alert,
     },
     props: {
         costs: Object,
