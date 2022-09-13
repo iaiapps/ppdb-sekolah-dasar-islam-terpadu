@@ -130,15 +130,24 @@ class AdminController extends Controller
     public function costUpdate(CostCategory $cost, Request $request)
     {
         $cost->update($request->except('id'));
-        return redirect()->route('admin.cost.index')->with('message', 'Edited cost category');
+        return redirect()->route('admin.cost.index')->with('message', "Edited cost category $request->name");
     }
     public function userDetail(User $user)
     {
-        return Inertia::render('Admin/Students/Show', ['student' => $user->student]);
+        return Inertia::render('Admin/Students/Show', ['isReadOnly' => true, 'student' => $user->student]);
     }
     public function studentShow(Student $student)
     {
-        return Inertia::render('Admin/Students/Show', ['student' => $student]);
+        return Inertia::render('Admin/Students/Show', ['isReadOnly' => true, 'student' => $student]);
+    }
+    public function studentEdit(Student $student)
+    {
+        return Inertia::render('Admin/Students/Show', ['isReadOnly' => false, 'student' => $student]);
+    }
+    public function studentUpdate(Student $student, Request $req)
+    {
+        $student->update($req->all());
+        return redirect()->route('admin.students')->with('message', 'Success, Edited Student');
     }
     public function settings()
     {

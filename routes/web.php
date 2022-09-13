@@ -41,6 +41,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/admin/students', [AdminController::class, 'students'])->name('admin.students');
     Route::get('/admin/{student}/{acc}/acc-or-reject', [AdminController::class, 'accOrReject'])->name('admin.acc-or-reject');
     Route::get('/admin/students/{student}/show', [AdminController::class, 'studentShow'])->name('admin.students.detail');
+    Route::get('/admin/students/{student}/edit', [AdminController::class, 'studentEdit'])->name('admin.students.edit');
+    Route::put('/admin/students/{student}/update', [AdminController::class, 'studentUpdate'])->name('admin.students.update');
     Route::get('/admin/set-schedule', [AdminController::class, 'setSchedule'])->name('admin.set-schedule');
 
     //route bawahnya 

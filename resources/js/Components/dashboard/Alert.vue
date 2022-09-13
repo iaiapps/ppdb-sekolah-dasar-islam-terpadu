@@ -1,7 +1,7 @@
 <template>
     <div
         v-if="$page.props.flash.message"
-        class="bg-white text-center alert alert-dismissible mb-3"
+        class="alert-success text-center alert alert-dismissible mb-3"
     >
         {{ $page.props.flash.message }}
         <button

@@ -1,6 +1,7 @@
 <template>
     <AppLayout>
         <div class="col-12 col-md-8 px-0 px-md-3 mt-3 mt-md-0">
+            <Alert />
             <div class="table-responsive bg-white rounded p-3 mb-3">
                 <p class="fs-4 m-0">Students</p>
             </div>
@@ -25,7 +26,10 @@
                         <tr
                             v-for="(st, index) in students.data"
                             :key="st.id"
-                            :class="{ 'table-danger': st.status === 'reject' }"
+                            :class="{
+                                'table-danger': st.status === 'reject',
+                                'table-success': st.status === 'acc',
+                            }"
                         >
                             <td>
                                 <Link
@@ -77,6 +81,7 @@ import AppLayout from "../../../Layouts/App.vue";
 import Pagination from "../../../Components/Table/Pagination.vue";
 import { ref, watch, defineProps } from "vue";
 import { Inertia } from "@inertiajs/inertia";
+import Alert from "../../../Components/dashboard/Alert.vue";
 
 const cari = ref("");
 const props = defineProps({
