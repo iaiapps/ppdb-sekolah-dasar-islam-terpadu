@@ -31,19 +31,21 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
     Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
     Route::get('/admin/{user}/user-aktifkan', [AdminController::class, 'aktifkanUser'])->name('admin.user-aktifkan');
     Route::get('/admin/user/{user}/detail', [AdminController::class, 'userDetail'])->name('admin.user.detail');
+
     Route::get('/admin/students', [AdminController::class, 'students'])->name('admin.students');
     Route::get('/admin/{student}/{acc}/acc-or-reject', [AdminController::class, 'accOrReject'])->name('admin.acc-or-reject');
     Route::get('/admin/students/{student}/show', [AdminController::class, 'studentShow'])->name('admin.students.detail');
     Route::get('/admin/set-schedule', [AdminController::class, 'setSchedule'])->name('admin.set-schedule');
 
     //route bawahnya 
+    Route::get('/admin/settings', [AdminController::class, 'settings'])->name('admin.settings');
     Route::get('/admin/terima-tolak', [AdminController::class, 'TerimaTolak'])->name('admin.terima-tolak');
     Route::get('/admin/kategori-biaya', [AdminController::class, 'Kategori'])->name('admin.kategori-biaya');
     Route::get('/admin/atur-biaya', [AdminController::class, 'AturBiaya'])->name('admin.atur-biaya');
-    Route::get('/admin/settings', [AdminController::class, 'Settings'])->name('admin.settings');
     // COST
     Route::get('/admin/cost/index', [AdminController::class, 'cost'])->name('admin.cost.index');
     Route::get('/admin/cost/{cost}/edit', [AdminController::class, 'costEdit'])->name('admin.cost.edit');

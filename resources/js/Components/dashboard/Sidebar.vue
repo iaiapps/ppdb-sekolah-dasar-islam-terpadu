@@ -82,13 +82,7 @@
                 </Link>
             </li>
             <li class="nav-item my-1">
-                <Link
-                    class="nav-link hover rounded"
-                    href="/admin/settings"
-                    :class="{
-                        'bg-menu': $page.url === '/admin/settings',
-                    }"
-                >
+                <Link class="nav-link hover rounded" href="/admin/settings">
                     <i class="bi bi bi-sliders me-0 me-md-2"></i>
                     <span class="d-none d-md-inline-block">Setting</span>
                 </Link>

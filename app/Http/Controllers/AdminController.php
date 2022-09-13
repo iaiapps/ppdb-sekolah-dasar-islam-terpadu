@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\CostCategory;
+use App\Models\SettingApplication;
+use App\Models\SettingPpdb;
+use App\Models\SettingTimeline;
 use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Student;
@@ -95,10 +98,6 @@ class AdminController extends Controller
         return Inertia::render('Admin/AturBiaya');
     }
 
-    public function Settings()
-    {
-        return Inertia::render('Admin/Settings');
-    }
     public function accOrReject(Student $student, $acc)
     {
         if ($acc === "true") {
@@ -129,5 +128,12 @@ class AdminController extends Controller
     public function studentShow(Student $student)
     {
         return Inertia::render('Admin/Students/Show', ['student' => $student]);
+    }
+    public function settings()
+    {
+        $set_ppdb = SettingPpdb::all();
+        $set_timeline = SettingTimeline::all();
+        $set_app = SettingApplication::all();
+        return Inertia::render('Admin/Settings/Index', compact('set_ppdb', 'set_timeline', 'set_app'));
     }
 }
