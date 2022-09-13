@@ -13,10 +13,10 @@
                     aria-label="Close"
                 ></button>
             </div>
-            <div class="bg-white rounded p-3 mb-3">
+            <div class="table-responsive bg-white rounded p-3 mb-3">
                 <p class="fs-4 m-0">Users</p>
             </div>
-            <div class="bg-white rounded p-3">
+            <div class="table-responsive bg-white rounded p-3">
                 <div>
                     <input
                         type="text"

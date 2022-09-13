@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div class="bg-white rounded p-3 position-relative mb-3">
+        <div
+            class="table-responsive bg-white rounded p-3 position-relative mb-3"
+        >
             <div class="mb-5">
                 <p class="fs-5">Setting Timeline</p>
                 <hr />

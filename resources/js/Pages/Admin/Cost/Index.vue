@@ -1,10 +1,10 @@
 <template>
     <AppLayout>
         <div class="col-md px-0 px-md-3 mt-3 mt-md-0">
-            <div class="bg-white rounded p-3 mb-3">
+            <div class="table-responsive bg-white rounded p-3 mb-3">
                 <p class="fs-4 m-0">Set Cost Category</p>
             </div>
-            <div class="bg-white rounded p-3 vh-100">
+            <div class="table-responsive bg-white rounded p-3 vh-100">
                 <table class="table table-responsive">
                     <thead>
                         <tr>

@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 p-3 bg-white rounded col-md-2">
+    <div class="col-12 p-3 table-responsive bg-white rounded col-md-2">
         <div class="text-center">
             <img class="logo" :src="'/storage/img/logosdit.png'" alt="logo" />
         </div>
