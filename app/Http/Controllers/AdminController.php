@@ -24,6 +24,7 @@ class AdminController extends Controller
             ->when($request->search, function ($query, $search) {
                 $query->where('name', 'LIKE', "%{$search}%");
             })
+            ->orderByDesc('id')
             ->paginate(300)
             ->withQueryString()
             ->through(function ($item) {
@@ -54,6 +55,7 @@ class AdminController extends Controller
             ->when($request->cari, function ($query, $cari) {
                 $query->where('full_name', 'LIKE', "%{$cari}%");
             })
+            ->orderByDesc('id')
             ->paginate(300)
             ->withQueryString()
             ->through(function ($item) {
