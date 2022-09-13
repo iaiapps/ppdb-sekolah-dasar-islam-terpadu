@@ -20,6 +20,16 @@ const _sfc_main = {
         { preserveState: true, replace: true }
       );
     });
+    const reject = (id, student) => {
+      if (confirm("Are you sure you reject: " + student)) {
+        Inertia.get(route("admin.acc-or-reject", [id, false]));
+      }
+    };
+    const acc = (id, student) => {
+      if (confirm("Are you sure you Accept: " + student)) {
+        Inertia.get(route("admin.acc-or-reject", [id, true]));
+      }
+    };
     return (_ctx, _push, _parent, _attrs) => {
       _push(ssrRenderComponent(AppLayout, _attrs, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -46,10 +56,7 @@ const _sfc_main = {
                 _push2(ssrRenderComponent(unref(Link), {
                   as: "button",
                   class: "btn btn-sm mx-1 btn-danger",
-                  href: _ctx.route("admin.acc-or-reject", [
-                    st.id,
-                    false
-                  ])
+                  onClick: ($event) => reject(st.id, st.full_name)
                 }, {
                   default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                     if (_push3) {
@@ -69,10 +76,27 @@ const _sfc_main = {
                 _push2(ssrRenderComponent(unref(Link), {
                   as: "button",
                   class: "btn btn-sm mx-1 btn-success",
-                  href: _ctx.route("admin.acc-or-reject", [
-                    st.id,
-                    true
-                  ])
+                  onClick: ($event) => acc(st.id, st.full_name)
+                }, {
+                  default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                    if (_push3) {
+                      _push3(`Acc`);
+                    } else {
+                      return [
+                        createTextVNode("Acc")
+                      ];
+                    }
+                  }),
+                  _: 2
+                }, _parent2, _scopeId));
+              } else {
+                _push2(`<!---->`);
+              }
+              if (st.status === "menunggu") {
+                _push2(ssrRenderComponent(unref(Link), {
+                  as: "button",
+                  class: "btn btn-sm mx-1 btn-success",
+                  onClick: ($event) => acc(st.id, st.full_name)
                 }, {
                   default: withCtx((_2, _push3, _parent3, _scopeId2) => {
                     if (_push3) {
@@ -143,30 +167,35 @@ const _sfc_main = {
                               key: 0,
                               as: "button",
                               class: "btn btn-sm mx-1 btn-danger",
-                              href: _ctx.route("admin.acc-or-reject", [
-                                st.id,
-                                false
-                              ])
+                              onClick: ($event) => reject(st.id, st.full_name)
                             }, {
                               default: withCtx(() => [
                                 createTextVNode("Reject")
                               ]),
                               _: 2
-                            }, 1032, ["href"])) : createCommentVNode("", true),
+                            }, 1032, ["onClick"])) : createCommentVNode("", true),
                             st.status === "reject" ? (openBlock(), createBlock(unref(Link), {
                               key: 1,
                               as: "button",
                               class: "btn btn-sm mx-1 btn-success",
-                              href: _ctx.route("admin.acc-or-reject", [
-                                st.id,
-                                true
-                              ])
+                              onClick: ($event) => acc(st.id, st.full_name)
                             }, {
                               default: withCtx(() => [
                                 createTextVNode("Acc")
                               ]),
                               _: 2
-                            }, 1032, ["href"])) : createCommentVNode("", true)
+                            }, 1032, ["onClick"])) : createCommentVNode("", true),
+                            st.status === "menunggu" ? (openBlock(), createBlock(unref(Link), {
+                              key: 2,
+                              as: "button",
+                              class: "btn btn-sm mx-1 btn-success",
+                              onClick: ($event) => acc(st.id, st.full_name)
+                            }, {
+                              default: withCtx(() => [
+                                createTextVNode("Acc")
+                              ]),
+                              _: 2
+                            }, 1032, ["onClick"])) : createCommentVNode("", true)
                           ])
                         ], 2);
                       }), 128))

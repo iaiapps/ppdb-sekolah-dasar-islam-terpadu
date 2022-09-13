@@ -44,24 +44,21 @@
                                     v-if="st.status === 'acc'"
                                     as="button"
                                     class="btn btn-sm mx-1 btn-danger"
-                                    :href="
-                                        route('admin.acc-or-reject', [
-                                            st.id,
-                                            false,
-                                        ])
-                                    "
+                                    @click="reject(st.id, st.full_name)"
                                     >Reject</Link
                                 >
                                 <Link
                                     v-if="st.status === 'reject'"
                                     as="button"
                                     class="btn btn-sm mx-1 btn-success"
-                                    :href="
-                                        route('admin.acc-or-reject', [
-                                            st.id,
-                                            true,
-                                        ])
-                                    "
+                                    @click="acc(st.id, st.full_name)"
+                                    >Acc</Link
+                                >
+                                <Link
+                                    v-if="st.status === 'menunggu'"
+                                    as="button"
+                                    class="btn btn-sm mx-1 btn-success"
+                                    @click="acc(st.id, st.full_name)"
                                     >Acc</Link
                                 >
                             </td>
@@ -92,4 +89,15 @@ watch(cari, (value) => {
         { preserveState: true, replace: true }
     );
 });
+
+const reject = (id, student) => {
+    if (confirm("Are you sure you reject: " + student)) {
+        Inertia.get(route("admin.acc-or-reject", [id, false]));
+    }
+};
+const acc = (id, student) => {
+    if (confirm("Are you sure you Accept: " + student)) {
+        Inertia.get(route("admin.acc-or-reject", [id, true]));
+    }
+};
 </script>
