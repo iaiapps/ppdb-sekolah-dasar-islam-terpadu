@@ -1,4 +1,4 @@
-import { ref, watch, withCtx, unref, createTextVNode, createVNode, openBlock, createBlock, toDisplayString, createCommentVNode, withDirectives, vModelText, Fragment, renderList, useSSRContext } from "vue";
+import { ref, watch, withCtx, unref, createTextVNode, toDisplayString, createVNode, openBlock, createBlock, createCommentVNode, withDirectives, vModelText, Fragment, renderList, vShow, useSSRContext } from "vue";
 import { ssrRenderComponent, ssrInterpolate, ssrRenderAttr, ssrRenderList } from "vue/server-renderer";
 import { Link } from "@inertiajs/inertia-vue3";
 import { A as AppLayout } from "./App.1cb7fdc5.mjs";
@@ -31,10 +31,26 @@ const _sfc_main = {
             } else {
               _push2(`<!---->`);
             }
-            _push2(`<div class="bg-white rounded p-3 mb-3"${_scopeId}><p class="fs-4 m-0"${_scopeId}>Users</p></div><div class="bg-white rounded p-3"${_scopeId}><div${_scopeId}><input type="text" placeholder="Cari nama atau nomor wa" class="form-control mb-3"${ssrRenderAttr("value", search.value)}${_scopeId}></div><table class="table table-striped"${_scopeId}><thead${_scopeId}><tr${_scopeId}><th scope="col"${_scopeId}>No.</th><th scope="col"${_scopeId}>No. WhatssApp</th><th scope="col"${_scopeId}>Nama</th><th scope="col"${_scopeId}>Action</th></tr></thead><tbody${_scopeId}><!--[-->`);
+            _push2(`<div class="bg-white rounded p-3 mb-3"${_scopeId}><p class="fs-4 m-0"${_scopeId}>Users</p></div><div class="bg-white rounded p-3"${_scopeId}><div${_scopeId}><input type="text" placeholder="Cari nama atau nomor wa" class="form-control mb-3"${ssrRenderAttr("value", search.value)}${_scopeId}></div><table class="table table-striped"${_scopeId}><thead${_scopeId}><tr${_scopeId}><th scope="col"${_scopeId}>No.</th><th scope="col"${_scopeId}>No. WhatssApp</th><th scope="col"${_scopeId}>Nama</th><th scope="col"${_scopeId}>Ket</th><th scope="col"${_scopeId}>Action</th></tr></thead><tbody${_scopeId}><!--[-->`);
             ssrRenderList(__props.users.data, (item, index) => {
-              _push2(`<tr${_scopeId}><td scope="row"${_scopeId}>${ssrInterpolate(index + 1)}</td><td${_scopeId}>${ssrInterpolate(item.email)}</td><td${_scopeId}>${ssrInterpolate(item.name)}</td><td${_scopeId}>`);
+              _push2(`<tr${_scopeId}><td scope="row"${_scopeId}>${ssrInterpolate(index + 1)}</td><td${_scopeId}>${ssrInterpolate(item.email)}</td><td${_scopeId}>`);
               _push2(ssrRenderComponent(unref(Link), {
+                href: _ctx.route("admin.user.detail", item.id)
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(`${ssrInterpolate(item.name)}`);
+                  } else {
+                    return [
+                      createTextVNode(toDisplayString(item.name), 1)
+                    ];
+                  }
+                }),
+                _: 2
+              }, _parent2, _scopeId));
+              _push2(`</td><td${_scopeId}>${ssrInterpolate(item.role)}</td><td${_scopeId}>`);
+              _push2(ssrRenderComponent(unref(Link), {
+                style: item.aktifkan ? null : { display: "none" },
                 as: "button",
                 class: "btn btn-sm btn-secondary",
                 href: _ctx.route("admin.user-aktifkan", item.id)
@@ -93,6 +109,7 @@ const _sfc_main = {
                         createVNode("th", { scope: "col" }, "No."),
                         createVNode("th", { scope: "col" }, "No. WhatssApp"),
                         createVNode("th", { scope: "col" }, "Nama"),
+                        createVNode("th", { scope: "col" }, "Ket"),
                         createVNode("th", { scope: "col" }, "Action")
                       ])
                     ]),
@@ -103,9 +120,19 @@ const _sfc_main = {
                         }, [
                           createVNode("td", { scope: "row" }, toDisplayString(index + 1), 1),
                           createVNode("td", null, toDisplayString(item.email), 1),
-                          createVNode("td", null, toDisplayString(item.name), 1),
                           createVNode("td", null, [
                             createVNode(unref(Link), {
+                              href: _ctx.route("admin.user.detail", item.id)
+                            }, {
+                              default: withCtx(() => [
+                                createTextVNode(toDisplayString(item.name), 1)
+                              ]),
+                              _: 2
+                            }, 1032, ["href"])
+                          ]),
+                          createVNode("td", null, toDisplayString(item.role), 1),
+                          createVNode("td", null, [
+                            withDirectives(createVNode(unref(Link), {
                               as: "button",
                               class: "btn btn-sm btn-secondary",
                               href: _ctx.route("admin.user-aktifkan", item.id)
@@ -114,7 +141,9 @@ const _sfc_main = {
                                 createTextVNode(" Aktifkan ")
                               ]),
                               _: 2
-                            }, 1032, ["href"])
+                            }, 1032, ["href"]), [
+                              [vShow, item.aktifkan]
+                            ])
                           ])
                         ]);
                       }), 128))
