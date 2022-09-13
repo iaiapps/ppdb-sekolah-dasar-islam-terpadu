@@ -47,15 +47,14 @@ Route::group(['middleware' => ['role:admin']], function () {
 
     //route bawahnya 
     Route::get('/admin/settings', [AdminController::class, 'settings'])->name('admin.settings');
-    Route::get('/admin/terima-tolak', [AdminController::class, 'TerimaTolak'])->name('admin.terima-tolak');
-    Route::get('/admin/kategori-biaya', [AdminController::class, 'Kategori'])->name('admin.kategori-biaya');
-    Route::get('/admin/atur-biaya', [AdminController::class, 'AturBiaya'])->name('admin.atur-biaya');
     // COST
     Route::get('/admin/cost/create', [AdminController::class, 'costCreate'])->name('admin.cost.create');
     Route::post('/admin/cost/create', [AdminController::class, 'costStore'])->name('admin.cost.store');
     Route::get('/admin/cost/index', [AdminController::class, 'cost'])->name('admin.cost.index');
     Route::get('/admin/cost/{cost}/edit', [AdminController::class, 'costEdit'])->name('admin.cost.edit');
     Route::put('/admin/cost/{cost}/edit', [AdminController::class, 'costUpdate'])->name('admin.cost.update');
+    Route::get('/admin/cost/students', [AdminController::class, 'costStudents'])->name('admin.cost.students');
+    Route::post('/admin/cost/apply', [AdminController::class, 'costApply'])->name('admin.cost.apply');
 
     Route::resource('timeline', SetTimelineController::class);
     Route::resource('ppdb', SetPpdbController::class);

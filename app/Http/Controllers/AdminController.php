@@ -90,11 +90,32 @@ class AdminController extends Controller
         return Inertia::render('Admin/Students/SetSchedule', compact('students'));
     }
 
-    public function Kategori()
+    public function costStudents()
     {
-        return Inertia::render('Admin/Kategori');
-    }
+        $costs = CostCategory::all();
+        $students = Student::whereNull('cost_category_id')->get();
+        $students_applied = Student::whereNotNull('cost_category_id')
+            ->paginate(300)
+            ->withQueryString()
+            ->through(function ($item) {
+                return [
+                    'name' => $item->full_name,
+                    'wa' => $item->user->email,
+                    'cost' => $item->costCategory->name
+                ];
+            });
 
+        return Inertia::render('Admin/Cost/Students', compact('costs', 'students', 'students_applied'));
+    }
+    public function costApply(Request $request)
+    {
+        // dd($request->all());
+        $s = Student::find($request->student_id);
+        $s->update([
+            'cost_category_id' => $request->cost_category_id
+        ]);
+        return redirect()->back()->with('message', 'Successfully applied');
+    }
     public function AturBiaya()
     {
         return Inertia::render('Admin/AturBiaya');

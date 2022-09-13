@@ -52,13 +52,13 @@
             <li class="nav-item my-1">
                 <Link
                     class="nav-link hover rounded"
-                    href="/admin/kategori-biaya"
+                    :href="route('admin.cost.students')"
                     :class="{
                         'bg-menu': $page.url === '/admin/kategori-biaya',
                     }"
                 >
                     <i class="bi bi-coin me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Cost Category</span>
+                    <span class="d-none d-md-inline-block">Cost Re-Reg</span>
                 </Link>
             </li>
             <li class="nav-item my-1">
@@ -76,7 +76,7 @@
             <li class="nav-item my-1">
                 <Link class="nav-link hover rounded" href="/admin/settings">
                     <i class="bi bi bi-sliders me-0 me-md-2"></i>
-                    <span class="d-none d-md-inline-block">Setting</span>
+                    <span class="d-none d-md-inline-block">Settings</span>
                 </Link>
             </li>
         </ul>
