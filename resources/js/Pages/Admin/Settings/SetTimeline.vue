@@ -6,12 +6,11 @@
             <div class="mb-5">
                 <div class="d-md-flex justify-content-between">
                     <p class="fs-5">Setting Timeline</p>
-                    <!-- <button
-                        :href="route('timeline.create')"
-                        class="btn btn-sm btn-oorange"
-                    >
-                        +
-                    </button> -->
+                    <!-- <Link
+                        as="button"
+                        class="btn btn-sm btn-oorange text-light mb-3"
+                        ><i class="bi bi-plus-square-fill"></i> Add</Link
+                    > -->
                 </div>
                 <hr />
 

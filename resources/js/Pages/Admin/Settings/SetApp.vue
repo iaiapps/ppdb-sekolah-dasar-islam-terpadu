@@ -23,12 +23,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="set in sets">
+                        <tr v-for="set in sets" :key="set.id">
                             <td>{{ set.key }}</td>
                             <td>{{ set.value }}</td>
                             <td>
                                 <a
-                                    :href="route('ppdb.edit', set.id)"
+                                    :href="route('setApp.edit', set.id)"
                                     class="btn btn-sm btn-oorange"
                                     >Edit</a
                                 >

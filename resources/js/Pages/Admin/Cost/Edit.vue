@@ -5,6 +5,7 @@
                 <p class="fs-4 m-0">Set Cost Category</p>
             </div>
             <div class="table-responsive bg-white rounded p-3">
+                <BackButton />
                 <form
                     @submit.prevent="
                         form.put(route('admin.cost.update', form.id))
@@ -103,8 +104,10 @@ import { Link } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import AppLayout from "../../../Layouts/App.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
+import BackButton from "../../../Components/dashboard/BackButton.vue";
 export default {
     components: {
+        BackButton,
         AppLayout,
         Link,
     },
@@ -112,19 +115,6 @@ export default {
         cost: Object,
     },
     setup(props) {
-        // const form = useForm({
-        //     name: props.cost.name,
-        //     gender: props.cost.gender,
-        //     gedung: props.cost.gedung,
-        //     perpustakaan: props.cost.perpustakaan,
-        //     kegiatan: props.cost.kegiatan,
-        //     bukumedia: props.cost.bukumedia,
-        //     seragam: props.cost.seragam,
-        //     jilbab: props.cost.jilbab,
-        //     ipp: props.cost.ipp,
-        // });
-
-        // atau bisa langsung aja
         const form = useForm(props.cost);
 
         return {

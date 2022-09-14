@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SettingApplication;
+use Inertia\Inertia;
 use App\Models\SettingPpdb;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
-class SetPpdbController extends Controller
+class SetAppController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,13 +36,9 @@ class SetPpdbController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $req)
+    public function store(Request $request)
     {
-
-        $re = $req->all();
-        $re['is_active'] = false;
-        SettingPpdb::create($re);
-        return back()->with('message', 'Successfully, Added!');
+        //
     }
 
     /**
@@ -61,7 +60,7 @@ class SetPpdbController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Inertia::render('Admin/Settings/EditApp', ['set_app' => SettingApplication::find($id)]);
     }
 
     /**
@@ -73,7 +72,9 @@ class SetPpdbController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        SettingApplication::find($id)
+            ->update($request->all());
+        return Redirect::route('admin.settings')->with('message', 'Edited');
     }
 
     /**
@@ -85,12 +86,5 @@ class SetPpdbController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function aktifkan($set_ppdb)
-    {
-        $id = (int)$set_ppdb;
-        SettingPpdb::whereNotIn('id', [$set_ppdb])->update(['is_active' => false]);
-        SettingPpdb::find($id)->update(['is_active' => true]);
     }
 }

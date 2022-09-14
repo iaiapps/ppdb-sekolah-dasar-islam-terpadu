@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SetAppController;
 use App\Http\Controllers\SetPpdbController;
 use App\Http\Controllers\SetTimelineController;
 
@@ -58,6 +59,8 @@ Route::group(['middleware' => ['role:admin']], function () {
 
     Route::resource('timeline', SetTimelineController::class);
     Route::resource('ppdb', SetPpdbController::class);
+    Route::resource('setApp', SetAppController::class);
+    Route::get('/ppdb/{set_ppdb}/aktifkan', [SetPpdbController::class, 'aktifkan'])->name('ppdb.aktifkan');
 });
 
 //USER
