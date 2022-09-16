@@ -2,8 +2,31 @@
     <AppLayout>
         <div class="col-12 col-md-8 px-0 px-md-3 mt-3 mt-md-0">
             <Alert />
-            <div class="table-responsive bg-white rounded p-3 mb-3">
+            <div
+                class="table-responsive bg-white rounded p-3 mb-3 d-md-flex justify-content-between"
+            >
                 <p class="fs-4 m-0">Students</p>
+                <a
+                    class="btn btn-oorange text-light"
+                    :href="route('admin.students.export')"
+                    ><i class="bi bi-save"></i> Export</a
+                >
+            </div>
+            <div
+                class="bg-white rounded p-3 mb-3 d-md-flex justify-content-start"
+            >
+                <button
+                    class="btn btn-sm btn-floating btn-success me-2"
+                ></button>
+                Accept
+                <button
+                    class="btn btn-sm btn-floating btn-danger mx-2"
+                ></button>
+                Reject
+                <button
+                    class="btn btn-sm btn-floating btn-outline-dark mx-2"
+                ></button>
+                Wait
             </div>
             <div class="table-responsive bg-white rounded p-3">
                 <input
@@ -12,7 +35,7 @@
                     placeholder="Search"
                     v-model="cari"
                 />
-                <table class="table table-striped">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Name</th>

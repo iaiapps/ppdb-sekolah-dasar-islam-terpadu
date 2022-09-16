@@ -19,6 +19,7 @@
                         <tr>
                             <th scope="col">Info</th>
                             <th scope="col">Date</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>

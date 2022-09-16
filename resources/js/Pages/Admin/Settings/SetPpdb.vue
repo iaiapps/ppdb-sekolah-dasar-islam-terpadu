@@ -75,40 +75,46 @@ use Inertia\Inertia;
                     </div>
                 </div>
                 <hr />
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Tahun ajaran</th>
-                            <th scope="col">Gelombang</th>
-                            <th scope="col">Start</th>
-                            <th scope="col">End</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr
-                            v-for="set in sets"
-                            :class="{ 'table-success': set.is_active }"
-                        >
-                            <td>{{ set.tahun_ajaran }}</td>
-                            <td>{{ set.gelombang }}</td>
-                            <td>{{ set.start_date }}</td>
-                            <td>{{ set.end_date }}</td>
-                            <td>
-                                <span v-if="set.is_active === 1"
-                                    >Sedang aktif</span
-                                >
-                                <Link
-                                    as="button"
-                                    :href="route('ppdb.aktifkan', set.id)"
-                                    class="btn btn-sm btn-oorange"
-                                    v-if="set.is_active !== 1"
-                                    >Aktifkan</Link
-                                >
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tahun ajaran</th>
+                                <th scope="col">Gelombang</th>
+                                <th scope="col">Start</th>
+                                <th scope="col">End</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                v-for="set in sets"
+                                :class="{ 'table-success': set.is_active }"
+                            >
+                                <td>{{ set.tahun_ajaran }}</td>
+                                <td>{{ set.gelombang }}</td>
+                                <td>{{ set.start_date }}</td>
+                                <td>{{ set.end_date }}</td>
+                                <td>
+                                    <span v-if="set.is_active === 1"
+                                        >Sedang aktif</span
+                                    >
+                                    <Link
+                                        as="button"
+                                        :href="route('ppdb.aktifkan', set.id)"
+                                        class="btn btn-sm btn-oorange"
+                                        v-if="set.is_active !== 1"
+                                        >Aktifkan</Link
+                                    >
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <i>
+                    NB: Data dan Export yang aktif adalah gelombang yang
+                    aktif</i
+                >
             </div>
         </div>
     </div>
@@ -138,3 +144,19 @@ export default {
     },
 };
 </script>
+<style>
+body {
+    --table-width: 100%; /* Or any value, this will change dinamically */
+}
+tbody {
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+}
+thead,
+tbody tr {
+    display: table;
+    width: var(--table-width);
+    table-layout: fixed;
+}
+</style>

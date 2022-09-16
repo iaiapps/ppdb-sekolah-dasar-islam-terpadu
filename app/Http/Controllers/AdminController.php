@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CostCategory;
-use App\Models\SettingApplication;
-use App\Models\SettingPpdb;
-use App\Models\SettingTimeline;
 use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Student;
+use App\Models\SettingPpdb;
+use App\Models\CostCategory;
 use Illuminate\Http\Request;
+use App\Exports\StudentsExport;
+use App\Models\SettingTimeline;
+use App\Models\SettingApplication;
+use Carbon\Carbon;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class AdminController extends Controller
 {
+    function __construct()
+    {
+        $d = SettingPpdb::where('is_active', true)->first();
+        $this->d = $d;
+    }
     public function index()
     {
         return Inertia::render('Admin/Index', ['admin' => true]);
@@ -24,6 +31,7 @@ class AdminController extends Controller
             ->when($request->search, function ($query, $search) {
                 $query->where('name', 'LIKE', "%{$search}%");
             })
+            ->whereBetween('created_at', [$this->d->start_date, $this->d->end_date])
             ->orderByDesc('id')
             ->paginate(300)
             ->withQueryString()
@@ -55,6 +63,7 @@ class AdminController extends Controller
             ->when($request->cari, function ($query, $cari) {
                 $query->where('full_name', 'LIKE', "%{$cari}%");
             })
+            ->whereBetween('created_at', [$this->d->start_date, $this->d->end_date])
             ->orderByDesc('id')
             ->paginate(300)
             ->withQueryString()
@@ -75,8 +84,7 @@ class AdminController extends Controller
                     'status' => $status,
                 ];
             });
-
-        return Inertia::render('Admin/Students/Index', ['title' => 'Students', 'students' => $students]);
+        return Inertia::render('Admin/Students/Index', ['title' => 'Students', 'students' => $students, 'tahun' => $this->d]);
     }
 
     public function setSchedule(Request $request)
@@ -95,6 +103,7 @@ class AdminController extends Controller
         $costs = CostCategory::all();
         $students = Student::whereNull('cost_categories_id')->get();
         $students_applied = Student::where('cost_categories_id', '!=', null)
+            ->whereBetween('created_at', [$this->d->start_date, $this->d->end_date])
             ->paginate(300)
             ->through(function ($item) {
                 $cost = CostCategory::find($item->cost_categories_id)->first()->name;
@@ -175,5 +184,10 @@ class AdminController extends Controller
         $set_timeline = SettingTimeline::all();
         $set_app = SettingApplication::all();
         return Inertia::render('Admin/Settings/Index', compact('set_ppdb', 'set_timeline', 'set_app'));
+    }
+    public function export()
+    {
+        $w = SettingPpdb::where('is_active', true)->first();
+        return (new StudentsExport($w->start_date, $w->end_date))->download('students.xlsx');
     }
 }
